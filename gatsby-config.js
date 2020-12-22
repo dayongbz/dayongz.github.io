@@ -6,7 +6,7 @@ module.exports = {
       summary: `who lives and works in South Korea.👋`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    siteUrl: `https://dayongbz.github.io/`,
     social: {
       twitter: `dayongbz`,
     },
