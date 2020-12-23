@@ -283,13 +283,18 @@ a:focus {
   margin: 0;
 }
 
-.post-list-item {
+.post-list-item article {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: var(--spacing-5);
   border-radius: 8px;
+}
+
+.post-list-item a {
+  text-decoration: none;
+  color: var(--color-text);
 }
 
 .post-list-item:hover {

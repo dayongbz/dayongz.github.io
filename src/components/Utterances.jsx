@@ -22,7 +22,6 @@ const Utterances = memo(({ repo }) => {
     })
 
     containerRef.current.appendChild(utterances)
-
     return () => {
       containerRef.current.removeChild(containerRef.current.firstChild)
     }
