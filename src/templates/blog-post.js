@@ -30,6 +30,7 @@ const BlogPostTemplate = ({ data, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
+        <hr />
         <Utterances repo="dayongbz/utterances_comment"></Utterances>
         <hr />
         <footer>
