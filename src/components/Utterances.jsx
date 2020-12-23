@@ -6,6 +6,7 @@ const Utterances = memo(({ repo }) => {
   const containerRef = useRef()
 
   useLayoutEffect(() => {
+    const parent = containerRef.current
     const utterances = document.createElement("script")
     const attributes = {
       src,
@@ -21,9 +22,9 @@ const Utterances = memo(({ repo }) => {
       utterances.setAttribute(key, value)
     })
 
-    containerRef.current.appendChild(utterances)
+    parent.appendChild(utterances)
     return () => {
-      containerRef.current.removeChild(containerRef.current.firstChild)
+      parent.removeChild(parent.firstChild)
     }
   }, [repo])
 
