@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Utterances from "../components/Utterances"
+import TableOfContents from "../components/TableOfContents"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -26,10 +27,13 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        <div className="section-wrapper">
+          <section
+            dangerouslySetInnerHTML={{ __html: post.html }}
+            itemProp="articleBody"
+          />
+          <TableOfContents items={post?.tableOfContents} />
+        </div>
         <hr />
         <Utterances repo="dayongbz/utterances_comment"></Utterances>
         <hr />
@@ -87,6 +91,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      tableOfContents
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
