@@ -390,6 +390,11 @@ a:focus {
   color: var(--color-text-light);
 }
 
+.toc .active {
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
 .toc a:hover {
   text-decoration: underline;
   color: var(--color-primary);

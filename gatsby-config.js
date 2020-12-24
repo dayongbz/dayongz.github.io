@@ -49,7 +49,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              classname: `anchor-header`,
+              className: `anchor-header`,
               maintainCase: false,
               removeAccets: true,
               elements: [`h2`, `h3`, `h4`],
