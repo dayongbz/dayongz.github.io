@@ -20,16 +20,20 @@ const BlogPostTemplate = ({ data, location }) => {
   useEffect(() => {
     const scroll = () => {
       // toc
-      let tempCurrentUrl
-      const currentOffsetY = window.pageYOffset
-      const headerElements = document.getElementsByClassName("anchor-header")
-      for (const elem of headerElements) {
-        const elemTop = elem.getBoundingClientRect().top + currentOffsetY
-        if (currentOffsetY > elemTop - 65) {
-          tempCurrentUrl = elem.href.split(location.origin)[1]
+      const isToc =
+        document.getElementsByClassName("toc-wrapper")[0].offsetWidth > 0
+      if (isToc) {
+        let tempCurrentUrl
+        const currentOffsetY = window.pageYOffset
+        const headerElements = document.getElementsByClassName("anchor-header")
+        for (const elem of headerElements) {
+          const elemTop = elem.getBoundingClientRect().top + currentOffsetY
+          if (currentOffsetY > elemTop - 65) {
+            tempCurrentUrl = elem.href.split(location.origin)[1]
+          }
         }
+        setCurrentHeaderUrl(tempCurrentUrl)
       }
-      setCurrentHeaderUrl(tempCurrentUrl)
     }
     window.addEventListener("scroll", scroll)
     return () => {
