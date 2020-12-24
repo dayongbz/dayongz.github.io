@@ -1,17 +1,19 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import { Link } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const navRef = useRef()
-  let prevOffsetY
 
   useEffect(() => {
-    const scroll = () => {
+    let prevOffsetY
+    const onScroll = () => {
       const currentOffsetY = window.pageYOffset
       if (navRef.current) {
-        if (prevOffsetY > currentOffsetY) {
+        if (currentOffsetY === 0) {
+          navRef.current.classList.remove("disable")
+        } else if (prevOffsetY > currentOffsetY) {
           navRef.current.classList.remove("disable")
         } else {
           navRef.current.classList.add("disable")
@@ -19,9 +21,9 @@ const Layout = ({ location, title, children }) => {
         prevOffsetY = currentOffsetY
       }
     }
-    window.addEventListener("scroll", scroll)
+    window.addEventListener("scroll", onScroll)
     return () => {
-      window.removeEventListener("scroll", scroll)
+      window.removeEventListener("scroll", onScroll)
     }
   }, [navRef])
 
@@ -34,10 +36,10 @@ const Layout = ({ location, title, children }) => {
         </Link>
       </nav>
       <main>{children}</main>
-      <footer>
+      {/* <footer>
         {title} ❤{` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
+      </footer> */}
     </div>
   )
 }

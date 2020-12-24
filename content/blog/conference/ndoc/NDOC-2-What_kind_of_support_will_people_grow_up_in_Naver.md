@@ -1,9 +1,10 @@
 ---
-title: 에피소드 2. 네이버 사람들은 어떤 지원 속에 성장할까? - NAVER DEVELOPER OPEN CLASS
+title: 네이버 사람들은 어떤 지원 속에 성장할까?
 date: 2020-08-05 14:54:00 +0900
 categories: [conference, ndoc]
 tags: [네이버, 네이버 오픈 클래스, 오픈 클래스, naver]
 description: 개인 업무기기 지원비를 매년 지원, 자율근무제등과 같은 꿈의 복지를 가진 네이버... 멋있다!
+featuredImage: ./images/2020-08-25-13-13-26.png
 ---
 
 ![메인이미지](./images/2020-08-25-13-13-26.png)

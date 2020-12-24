@@ -1,9 +1,10 @@
 ---
-title: 에피소드 1. 네이버 사람들은 어떤 환경에서 일할까? - NAVER DEVELOPER OPEN CLASS
+title: 네이버 사람들은 어떤 환경에서 일할까?
 date: 2020-07-23 18:15:00 +0900
 categories: [conference, ndoc]
 tags: [네이버, 네이버 오픈 클래스, 오픈 클래스, naver]
 description: 네이버 본사인 그린팩토리 1층부터 시작해서 구내식당, 카페, 사무실, 라운지, 복지 시설등을 알아봅시다!
+featuredImage: ./images/2020-08-24-17-54-00.png
 ---
 
 ![](./images/2020-08-24-17-49-58.png)

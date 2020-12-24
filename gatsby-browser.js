@@ -10,4 +10,4 @@ import "./src/style.css"
 // import "prismjs/themes/prism-tomorrow.css"
 import "./src/prism-dracula.css"
 
-import "fontsource-noto-sans-kr"
+import "fontsource-nanum-gothic"

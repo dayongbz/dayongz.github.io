@@ -1,10 +1,10 @@
 ---
-title: 에피소드 4. 코드로 이야기하는 개발자에게 커뮤니케이션 역량은 왜 중요할까요? - NAVER DEVELOPER OPEN CLASS
+title: 코드로 이야기하는 개발자에게 커뮤니케이션 역량은 왜 중요할까요?
 date: 2020-08-11 13:41:18 +0900
 categories: [conference, ndoc]
 tags: [네이버, 네이버 오픈 클래스, 오픈 클래스, naver]
-
 description: 요즘 IT 회사들에서 필히 요구되는 커뮤니케이션 스킬! 네이버 직원분들을 통해 배워봅시다!
+featuredImage: ./images/2020-08-25-13-53-00.png
 ---
 
 ![네이버의 커뮤니케이션?](./images/2020-08-25-13-53-00.png)

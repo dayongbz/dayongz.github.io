@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Utterances from "../components/Utterances"
@@ -28,7 +27,7 @@ const BlogPostTemplate = ({ data, location }) => {
         const headerElements = document.getElementsByClassName("anchor-header")
         for (const elem of headerElements) {
           const elemTop = elem.getBoundingClientRect().top + currentOffsetY
-          if (currentOffsetY > elemTop - 65) {
+          if (currentOffsetY > elemTop) {
             tempCurrentUrl = elem.href.split(location.origin)[1]
           }
         }
@@ -84,9 +83,6 @@ const BlogPostTemplate = ({ data, location }) => {
         <hr />
         <Utterances repo="dayongbz/utterances_comment"></Utterances>
         <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
       <nav className="blog-post-nav">
         <ul

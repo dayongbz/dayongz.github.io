@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Image from "gatsby-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -30,26 +31,34 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
+          const featuredImgFluid = post.frontmatter.featuredImage
           return (
             <li className="post-list-item" key={post.fields.slug}>
-              <Link to={post.fields.slug} itemProp="url">
-                <article itemScope itemType="http://schema.org/Article">
-                  <header>
+              <article itemScope itemType="http://schema.org/Article">
+                {featuredImgFluid && (
+                  <Image
+                    objectFit="cover"
+                    objectPosition="50% 50%"
+                    fluid={featuredImgFluid.childImageSharp.fluid}
+                  ></Image>
+                )}
+                <header>
+                  <Link to={post.fields.slug} itemProp="url">
                     <h2>
                       <span itemProp="headline">{title}</span>
                     </h2>
-                    <small>{post.frontmatter.date}</small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description || post.excerpt,
-                      }}
-                      itemProp="description"
-                    />
-                  </section>
-                </article>
-              </Link>
+                  </Link>
+                  <small>{post.frontmatter.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: post.frontmatter.description || post.excerpt,
+                    }}
+                    itemProp="description"
+                  />
+                </section>
+              </article>
             </li>
           )
         })}
@@ -77,6 +86,13 @@ export const pageQuery = graphql`
           date(formatString: "YYYY.MM.DD")
           title
           description
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 711, maxHeight: 300, cropFocus: CENTER) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

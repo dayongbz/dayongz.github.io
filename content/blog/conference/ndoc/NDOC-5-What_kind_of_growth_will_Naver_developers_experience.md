@@ -1,10 +1,10 @@
 ---
-title: 에피소드 5. 네이버 개발자는 어떤 성장을 경험할까? - NAVER DEVELOPER OPEN CLASS
+title: 네이버 개발자는 어떤 성장을 경험할까?
 date: 2020-08-18 16:45:55 +0900
 categories: [conference, ndoc]
 tags: [네이버, 네이버 오픈 클래스, 오픈 클래스, naver]
-
 description: 성장을 중요시하는 개발자! 네이버에서 어떤 성장을 할 수 있는지 네이버 개발자분들이 설명해드립니다!
+featuredImage: ./images/2020-08-25-14-11-54.png
 ---
 
 ![슬기로운 개발자 생활](./images/2020-08-25-14-10-33.png)
