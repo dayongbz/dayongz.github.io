@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Image from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -9,8 +10,10 @@ import TableOfContents from "../components/TableOfContents"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
+  const author = data.site.siteMetadata?.author
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+  const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -25,7 +28,20 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <p>
+            {avatar && (
+              <Image
+                fixed={avatar}
+                alt={author?.name || ``}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+            )}
+            <span>
+              {author.name} / {post.frontmatter.date}
+            </span>
+          </p>
         </header>
         <div className="section-wrapper">
           <section
@@ -79,6 +95,13 @@ export const pageQuery = graphql`
     $previousPostId: String
     $nextPostId: String
   ) {
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 30, height: 30, quality: 95) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         author {
