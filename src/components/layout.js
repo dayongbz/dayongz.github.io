@@ -11,7 +11,7 @@ const Layout = ({ location, title, children }) => {
     const onScroll = () => {
       const currentOffsetY = window.pageYOffset
       if (navRef.current) {
-        if (currentOffsetY === 0) {
+        if (currentOffsetY <= 0) {
           navRef.current.classList.remove("disable")
         } else if (prevOffsetY > currentOffsetY) {
           navRef.current.classList.remove("disable")

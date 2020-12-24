@@ -232,11 +232,12 @@ table thead tr th {
 
 a {
   color: var(--color-primary);
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* Custom classes */
@@ -297,11 +298,10 @@ a:focus {
 }
 
 .post-list-item a {
-  text-decoration: none;
   color: var(--color-text);
 }
 
-.post-list-item p {
+.post-list-item a .post-list-item p {
   margin-bottom: var(--spacing-0);
 }
 
@@ -323,8 +323,11 @@ a:focus {
 .header-link-home {
   font-weight: var(--fontWeight-bold);
   font-family: var(--font-heading);
-  text-decoration: none;
   font-size: var(--fontSize-2);
+}
+
+.header-link-home:hover {
+  text-decoration: none;
 }
 
 .bio {
@@ -394,7 +397,6 @@ a:focus {
 }
 
 .toc a {
-  text-decoration: none;
   color: var(--color-text-light);
 }
 
@@ -404,7 +406,6 @@ a:focus {
 }
 
 .toc a:hover {
-  text-decoration: underline;
   color: var(--color-primary);
 }
 
