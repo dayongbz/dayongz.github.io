@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
@@ -14,6 +14,28 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
   const avatar = data?.avatar?.childImageSharp?.fixed
+  const isToc = post.tableOfContents.length > 0
+  const [currentHeaderUrl, setCurrentHeaderUrl] = useState()
+
+  useEffect(() => {
+    const scroll = () => {
+      // toc
+      let tempCurrentUrl
+      const currentOffsetY = window.pageYOffset
+      const headerElements = document.getElementsByClassName("anchor-header")
+      for (const elem of headerElements) {
+        const elemTop = elem.getBoundingClientRect().top + currentOffsetY
+        if (currentOffsetY > elemTop - 65) {
+          tempCurrentUrl = elem.href.split(location.origin)[1]
+        }
+      }
+      setCurrentHeaderUrl(tempCurrentUrl)
+    }
+    window.addEventListener("scroll", scroll)
+    return () => {
+      window.removeEventListener("scroll", scroll)
+    }
+  }, [location.origin])
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -28,7 +50,7 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>
+          <div className="info-wrapper">
             {avatar && (
               <Image
                 fixed={avatar}
@@ -38,17 +60,22 @@ const BlogPostTemplate = ({ data, location }) => {
                 }}
               />
             )}
-            <span>
+            <p>
               {author.name} / {post.frontmatter.date}
-            </span>
-          </p>
+            </p>
+          </div>
         </header>
         <div className="section-wrapper">
           <section
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"
           />
-          <TableOfContents items={post?.tableOfContents} />
+          {isToc && (
+            <TableOfContents
+              items={post.tableOfContents}
+              currentHeaderUrl={currentHeaderUrl}
+            />
+          )}
         </div>
         <hr />
         <Utterances repo="dayongbz/utterances_comment"></Utterances>
