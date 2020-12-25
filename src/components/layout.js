@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Link } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const navRef = useRef()
+  const [theme, setTheme] = useState("light")
 
   useEffect(() => {
     let prevOffsetY
@@ -27,20 +28,28 @@ const Layout = ({ location, title, children }) => {
     }
   }, [navRef])
 
+  useEffect(() => {
+    document.getElementsByTagName("body")[0].classList.add(theme)
+  }, [theme])
+
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <div style={{ marginTop: "65px" }}></div>
+    <>
       <nav ref={navRef} className="global-nav">
         <Link className="header-link-home" to="/">
-          <div>{title}</div>
+          <p>{title}</p>
         </Link>
       </nav>
-      <main>{children}</main>
-      {/* <footer>
+      <div className="global-wrapper" data-is-root-path={isRootPath}>
+        <main>
+          <div>hello</div>
+          {children}
+        </main>
+        {/* <footer>
         {title} ❤{` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer> */}
-    </div>
+      </div>
+    </>
   )
 }
 

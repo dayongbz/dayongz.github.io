@@ -27,7 +27,7 @@ const BlogPostTemplate = ({ data, location }) => {
         const headerElements = document.getElementsByClassName("anchor-header")
         for (const elem of headerElements) {
           const elemTop = elem.getBoundingClientRect().top + currentOffsetY
-          if (currentOffsetY > elemTop - 65) {
+          if (currentOffsetY > elemTop) {
             tempCurrentUrl = elem.href.split(location.origin)[1]
           }
         }

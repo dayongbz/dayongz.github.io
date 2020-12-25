@@ -182,6 +182,7 @@ ul li,
 ol li {
   padding-left: var(--spacing-0);
   margin-bottom: calc(var(--spacing-8) / 2);
+  overflow-wrap: break-word;
 }
 
 li > p {
@@ -245,7 +246,7 @@ a:focus {
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  padding: var(--spacing-16) var(--spacing-5);
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
@@ -276,11 +277,12 @@ a:focus {
   transform: translateY(-100%);
 }
 
-.global-nav div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.global-nav a {
+  flex: 1;
+}
+
+.global-nav p {
+  margin: 0;
 }
 
 .main-heading {
@@ -377,12 +379,21 @@ a:focus {
   position: relative;
 }
 
+.section-wrapper section {
+  width: 100%;
+}
+
+.section-wrapper section ul li p {
+  display: inline;
+}
+
 .toc-wrapper {
   position: absolute;
   top: 0;
   right: -13rem;
   height: 100%;
   font-size: var(--fontSize-0);
+  max-width: 150px;
 }
 
 .toc {
@@ -420,6 +431,7 @@ a:focus {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
   }
+  ul,
   ol {
     list-style-position: inside;
   }
