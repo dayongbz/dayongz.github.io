@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import Utterances from "../components/utterances"
 import TableOfContents from "../components/toc"
 import { GlobalStateContext } from "../context/GlobalContextProvider"
+import SponsorButton from "../components/sponsor-button"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -53,9 +54,14 @@ const BlogPostTemplate = ({ data, location }) => {
           {isToc && <TableOfContents items={post.tableOfContents} />}
         </div>
       </article>
+      <div className="sponsor-button-wrapper">
+        <SponsorButton
+          href="https://www.buymeacoffee.com/dayongbz"
+          text="🍗 Buy me a chicken"
+        />
+      </div>
       <hr />
       {state.theme && <Utterances repo="dayongbz/utterances_comment" />}
-      <hr />
       <nav className="blog-post-nav">
         <ul
           style={{

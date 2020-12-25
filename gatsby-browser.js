@@ -12,10 +12,12 @@ import "./src/style/prism-atom-dark.css"
 
 import "fontsource-nanum-gothic"
 
+// react global state
+
 import React from "react"
 
 import GlobalContextProvider from "./src/context/GlobalContextProvider"
 
-export const wrapPageElement = ({ element }) => {
+export const wrapRootElement = ({ element }) => {
   return <GlobalContextProvider>{element}</GlobalContextProvider>
 }
