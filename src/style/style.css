@@ -66,6 +66,7 @@ body.light {
   --color-heading-black: #090c08;
   --color-accent: #d1dce5;
   --color-background: #ffffff;
+  --color-nav: #ffffff;
 }
 
 body.dark {
@@ -76,7 +77,7 @@ body.dark {
   --color-heading-black: #ffffff;
   --color-accent: #424242;
   --color-background: #121212;
-  --color-1dp: #1b1b1b;
+  --color-nav: #1b1b1b;
 }
 
 /* HTML elements */
@@ -289,8 +290,7 @@ a:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-background);
-  background-color: var(--color-1dp);
+  background-color: var(--color-nav);
   height: 65px;
   padding: 0 16px;
   border-bottom: 1px solid var(--color-accent);

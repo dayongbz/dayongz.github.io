@@ -1,0 +1,127 @@
+/**
+ * GHColors theme by Avi Aryan (http://aviaryan.in)
+ * Inspired by Github syntax coloring
+ */
+
+body.light code[class*="language-"],
+body.light pre[class*="language-"] {
+  color: #393a34;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier,
+    monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  font-size: 0.9em;
+  line-height: 1.2em;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+body.light pre > code[class*="language-"] {
+  font-size: 1em;
+}
+
+body.light pre[class*="language-"]::-moz-selection,
+body.light pre[class*="language-"] ::-moz-selection,
+body.light code[class*="language-"]::-moz-selection,
+body.light code[class*="language-"] ::-moz-selection {
+  background: #b3d4fc;
+}
+
+body.light pre[class*="language-"]::selection,
+body.light pre[class*="language-"] ::selection,
+body.light code[class*="language-"]::selection,
+body.light code[class*="language-"] ::selection {
+  background: #b3d4fc;
+}
+
+/* Code blocks */
+body.light pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border: 1px solid #dddddd;
+  background-color: white;
+}
+
+/* Inline code */
+body.light :not(pre) > code[class*="language-"] {
+  padding: 0.2em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background: #f8f8f8;
+  border: 1px solid #dddddd;
+}
+
+body.light .token.comment,
+body.light .token.prolog,
+body.light .token.doctype,
+body.light .token.cdata {
+  color: #999988;
+  font-style: italic;
+}
+
+body.light .token.namespace {
+  opacity: 0.7;
+}
+
+body.light .token.string,
+body.light .token.attr-value {
+  color: #e3116c;
+}
+
+body.light .token.punctuation,
+body.light .token.operator {
+  color: #393a34; /* no highlight */
+}
+
+body.light .token.entity,
+body.light .token.url,
+body.light .token.symbol,
+body.light .token.number,
+body.light .token.boolean,
+body.light .token.variable,
+body.light .token.constant,
+body.light .token.property,
+body.light .token.regex,
+body.light .token.inserted {
+  color: #36acaa;
+}
+
+body.light .token.atrule,
+body.light .token.keyword,
+body.light .token.attr-name,
+body.light .language-autohotkey .token.selector {
+  color: #00a4db;
+}
+
+body.light .token.function,
+body.light .token.deleted,
+body.light .language-autohotkey .token.tag {
+  color: #9a050f;
+}
+
+body.light .token.tag,
+body.light .token.selector,
+body.light .language-autohotkey .token.keyword {
+  color: #00009f;
+}
+
+body.light .token.important,
+body.light .token.function,
+body.light .token.bold {
+  font-weight: bold;
+}
+
+body.light .token.italic {
+  font-style: italic;
+}

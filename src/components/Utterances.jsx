@@ -2,7 +2,7 @@ import React, { useRef, useLayoutEffect, memo } from "react"
 
 const src = "https://utteranc.es/client.js"
 
-const Utterances = memo(({ repo }) => {
+const Utterances = memo(({ repo, theme = "github-light" }) => {
   const containerRef = useRef()
 
   useLayoutEffect(() => {
@@ -13,7 +13,7 @@ const Utterances = memo(({ repo }) => {
       repo,
       "issue-term": "pathname",
       label: "comment",
-      theme: "github-light",
+      theme,
       crossOrigin: "anonymous",
       async: "true",
     }
@@ -26,7 +26,7 @@ const Utterances = memo(({ repo }) => {
     return () => {
       parent.removeChild(parent.firstChild)
     }
-  }, [repo])
+  }, [repo, theme])
 
   return <div ref={containerRef}></div>
 })

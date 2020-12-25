@@ -15,6 +15,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const avatar = data?.avatar?.childImageSharp?.fixed
   const isToc = post.tableOfContents.length > 0
   const [currentHeaderUrl, setCurrentHeaderUrl] = useState()
+  const isDark = document
+    .getElementsByTagName("body")[0]
+    .classList.contains("dark")
 
   useEffect(() => {
     const scroll = () => {
@@ -81,7 +84,10 @@ const BlogPostTemplate = ({ data, location }) => {
           )}
         </div>
         <hr />
-        <Utterances repo="dayongbz/utterances_comment"></Utterances>
+        <Utterances
+          repo="dayongbz/utterances_comment"
+          theme={isDark ? "github-dark" : "github-light"}
+        ></Utterances>
         <hr />
       </article>
       <nav className="blog-post-nav">

@@ -1,0 +1,143 @@
+/**
+ * atom-dark theme for `prism.js`
+ * Based on Atom's `atom-dark` theme: https://github.com/atom/atom-dark-syntax
+ * @author Joe Gibson (@gibsjose)
+ */
+
+body.dark code[class*="language-"],
+body.dark pre[class*="language-"] {
+  color: #c5c8c6;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+body.dark pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+body.dark :not(pre) > code[class*="language-"],
+body.dark pre[class*="language-"] {
+  background: #1d1f21;
+}
+
+/* Inline code */
+body.dark :not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+
+body.dark .token.comment,
+body.dark .token.prolog,
+body.dark .token.doctype,
+body.dark .token.cdata {
+  color: #7c7c7c;
+}
+
+body.dark .token.punctuation {
+  color: #c5c8c6;
+}
+
+body.dark .namespace {
+  opacity: 0.7;
+}
+
+body.dark .token.property,
+body.dark .token.keyword,
+body.dark .token.tag {
+  color: #96cbfe;
+}
+
+body.dark .token.class-name {
+  color: #ffffb6;
+  text-decoration: underline;
+}
+
+body.dark .token.boolean,
+body.dark .token.constant {
+  color: #99cc99;
+}
+
+body.dark .token.symbol,
+body.dark .token.deleted {
+  color: #f92672;
+}
+
+body.dark .token.number {
+  color: #ff73fd;
+}
+
+body.dark .token.selector,
+body.dark .token.attr-name,
+body.dark .token.string,
+body.dark .token.char,
+body.dark .token.builtin,
+body.dark .token.inserted {
+  color: #a8ff60;
+}
+
+body.dark .token.variable {
+  color: #c6c5fe;
+}
+
+body.dark .token.operator {
+  color: #ededed;
+}
+
+body.dark .token.entity {
+  color: #ffffb6;
+  cursor: help;
+}
+
+body.dark .token.url {
+  color: #96cbfe;
+}
+
+body.dark .language-css .token.string,
+body.dark .style .token.string {
+  color: #87c38a;
+}
+
+body.dark .token.atrule,
+body.dark .token.attr-value {
+  color: #f9ee98;
+}
+
+body.dark .token.function {
+  color: #dad085;
+}
+
+body.dark .token.regex {
+  color: #e9c062;
+}
+
+body.dark .token.important {
+  color: #fd971f;
+}
+
+body.dark .token.important,
+body.dark .token.bold {
+  font-weight: bold;
+}
+
+body.dark .token.italic {
+  font-style: italic;
+}
