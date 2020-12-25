@@ -27,7 +27,7 @@ const GlobalNav = memo(({ title }) => {
   return (
     <nav ref={navRef} className="global-nav">
       <Link className="header-link-home" to="/">
-        {title}
+        <span>{title}</span>
       </Link>
     </nav>
   )
