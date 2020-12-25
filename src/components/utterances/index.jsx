@@ -1,11 +1,12 @@
-import React, { useRef, useLayoutEffect, memo } from "react"
+import React, { useRef, useEffect, memo } from "react"
+import isDark from "../../utils/isDark"
 
 const src = "https://utteranc.es/client.js"
 
-const Utterances = memo(({ repo, theme = "github-light" }) => {
+const Utterances = memo(({ repo }) => {
   const containerRef = useRef()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const parent = containerRef.current
     const utterances = document.createElement("script")
     const attributes = {
@@ -13,7 +14,7 @@ const Utterances = memo(({ repo, theme = "github-light" }) => {
       repo,
       "issue-term": "pathname",
       label: "comment",
-      theme,
+      theme: isDark() ? "github-dark" : "github-light",
       crossOrigin: "anonymous",
       async: "true",
     }
@@ -26,7 +27,7 @@ const Utterances = memo(({ repo, theme = "github-light" }) => {
     return () => {
       parent.removeChild(parent.firstChild)
     }
-  }, [repo, theme])
+  }, [repo])
 
   return <div ref={containerRef}></div>
 })

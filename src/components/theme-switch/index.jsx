@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import Switch from "react-switch"
 
-import DarkIcon from "./DarkIcon"
-import LightIcon from "./LightIcon"
+import DarkIcon from "../icon/DarkIcon"
+import LightIcon from "../icon/LightIcon"
 
 const ThemeSwitch = () => {
   const [theme, setTheme] = useState()

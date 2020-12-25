@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Utterances from "../components/Utterances"
-import TableOfContents from "../components/TableOfContents"
+import Utterances from "../components/utterances"
+import TableOfContents from "../components/toc"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -14,34 +14,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
   const avatar = data?.avatar?.childImageSharp?.fixed
   const isToc = post.tableOfContents.length > 0
-  const [currentHeaderUrl, setCurrentHeaderUrl] = useState()
-  const isDark = document
-    .getElementsByTagName("body")[0]
-    .classList.contains("dark")
-
-  useEffect(() => {
-    const scroll = () => {
-      // toc
-      const isToc =
-        document.getElementsByClassName("toc-wrapper")[0].offsetWidth > 0
-      if (isToc) {
-        let tempCurrentUrl
-        const currentOffsetY = window.pageYOffset
-        const headerElements = document.getElementsByClassName("anchor-header")
-        for (const elem of headerElements) {
-          const elemTop = elem.getBoundingClientRect().top + currentOffsetY
-          if (currentOffsetY > elemTop) {
-            tempCurrentUrl = elem.href.split(location.origin)[1]
-          }
-        }
-        setCurrentHeaderUrl(tempCurrentUrl)
-      }
-    }
-    window.addEventListener("scroll", scroll)
-    return () => {
-      window.removeEventListener("scroll", scroll)
-    }
-  }, [location.origin])
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -76,18 +48,10 @@ const BlogPostTemplate = ({ data, location }) => {
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"
           />
-          {isToc && (
-            <TableOfContents
-              items={post.tableOfContents}
-              currentHeaderUrl={currentHeaderUrl}
-            />
-          )}
+          {isToc && <TableOfContents items={post.tableOfContents} />}
         </div>
         <hr />
-        <Utterances
-          repo="dayongbz/utterances_comment"
-          theme={isDark ? "github-dark" : "github-light"}
-        ></Utterances>
+        <Utterances repo="dayongbz/utterances_comment"></Utterances>
         <hr />
       </article>
       <nav className="blog-post-nav">
