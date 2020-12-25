@@ -1,5 +1,5 @@
-import React from "react"
-const DarkIcon = ({ fill = "#1b1b1b" }) => {
+import React, { memo } from "react"
+const DarkIcon = memo(({ fill = "#1b1b1b" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +15,6 @@ const DarkIcon = ({ fill = "#1b1b1b" }) => {
       />
     </svg>
   )
-}
+})
 
 export default DarkIcon

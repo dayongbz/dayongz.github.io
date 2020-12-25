@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Utterances from "../components/utterances"
 import TableOfContents from "../components/toc"
+import { GlobalStateContext } from "../context/GlobalContextProvider"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -14,6 +15,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
   const avatar = data?.avatar?.childImageSharp?.fixed
   const isToc = post.tableOfContents.length > 0
+  const state = useContext(GlobalStateContext)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -50,10 +52,10 @@ const BlogPostTemplate = ({ data, location }) => {
           />
           {isToc && <TableOfContents items={post.tableOfContents} />}
         </div>
-        <hr />
-        <Utterances repo="dayongbz/utterances_comment"></Utterances>
-        <hr />
       </article>
+      <hr />
+      {state.theme && <Utterances repo="dayongbz/utterances_comment" />}
+      <hr />
       <nav className="blog-post-nav">
         <ul
           style={{

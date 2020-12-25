@@ -1,5 +1,5 @@
-import React from "react"
-const LightIcon = ({ fill = "#333333" }) => {
+import React, { memo } from "react"
+const LightIcon = memo(({ fill = "#333333" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +15,6 @@ const LightIcon = ({ fill = "#333333" }) => {
       />
     </svg>
   )
-}
+})
 
 export default LightIcon

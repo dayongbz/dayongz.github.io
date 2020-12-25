@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useContext, memo } from "react"
 import Switch from "react-switch"
 
 import DarkIcon from "../icon/DarkIcon"
 import LightIcon from "../icon/LightIcon"
+import {
+  GlobalStateContext,
+  GlobalDispatchContext,
+} from "../../context/GlobalContextProvider"
 
-const ThemeSwitch = () => {
-  const [theme, setTheme] = useState()
+const ThemeSwitch = memo(() => {
+  const state = useContext(GlobalStateContext)
+  const dispatch = useContext(GlobalDispatchContext)
 
   useEffect(() => {
     const prefersColorScheme = window.matchMedia(`(prefers-color-scheme: dark)`)
@@ -14,32 +19,31 @@ const ThemeSwitch = () => {
       : "light"
     const localTheme = localStorage.getItem("theme")
     const initialTheme = localTheme || prefersColorScheme
-    setTheme(initialTheme)
-  }, [])
+    dispatch({ type: "SET_THEME", theme: initialTheme })
+  }, [dispatch])
 
   useEffect(() => {
-    if (theme) {
+    if (state.theme) {
       const bodyElem = document.getElementsByTagName("body")[0]
-      bodyElem.classList.remove("light")
-      bodyElem.classList.remove("dark")
-      bodyElem.classList.add(theme === "light" ? "light" : "dark")
+      bodyElem.classList.remove(state.theme === "dark" ? "light" : "dark")
+      bodyElem.classList.add(state.theme)
     }
-  }, [theme])
+  }, [state.theme])
 
   const setMode = mode => {
     localStorage.setItem("theme", mode)
-    setTheme(mode)
+    dispatch({ type: "SET_THEME", theme: mode })
   }
 
   const themeToggler = () => {
-    theme === "light" ? setMode("dark") : setMode("light")
+    state.theme === "light" ? setMode("dark") : setMode("light")
   }
 
   return (
     <>
-      {theme && (
+      {state.theme && (
         <Switch
-          checked={theme === "dark"}
+          checked={state.theme === "dark"}
           onChange={themeToggler}
           onColor="#666666"
           offColor="#d1dce5"
@@ -51,6 +55,6 @@ const ThemeSwitch = () => {
       )}
     </>
   )
-}
+})
 
 export default ThemeSwitch
