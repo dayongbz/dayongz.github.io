@@ -63,15 +63,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-176287431-1`,
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Dayong Lee Blog`,
+        short_name: `DayongLee`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#02569b`,
@@ -80,7 +80,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    "gatsby-plugin-dark-mode",
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-use-dark-mode",
+      options: {
+        classNameDark: "dark",
+        classNameLight: "light",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

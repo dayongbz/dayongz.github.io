@@ -19,5 +19,18 @@ import React from "react"
 import GlobalContextProvider from "./src/context/GlobalContextProvider"
 
 export const wrapRootElement = ({ element }) => {
-  return <GlobalContextProvider>{element}</GlobalContextProvider>
+  return (
+    <GlobalContextProvider>
+      <div
+        style={{
+          color: "var(--color-text)",
+          backgroundColor: "var(--color-background)",
+          transition:
+            "color 0.3s ease, background-color 0.3s ease, border 0.3s ease",
+        }}
+      >
+        {element}
+      </div>
+    </GlobalContextProvider>
+  )
 }

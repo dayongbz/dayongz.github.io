@@ -1,9 +1,21 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_THEME": {
+    case "ADD_POST": {
       return {
         ...state,
-        theme: action.theme,
+        posts: state.posts + 3,
+      }
+    }
+    case "SET_POST": {
+      return {
+        ...state,
+        posts: action.posts,
+      }
+    }
+    case "SET_MAX_POST": {
+      return {
+        ...state,
+        maxPosts: action.maxPosts,
       }
     }
     default:

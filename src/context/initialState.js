@@ -1,5 +1,6 @@
 const initialState = {
-  theme: null,
+  posts: null,
+  maxPosts: null,
 }
 
 export default initialState
