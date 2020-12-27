@@ -67,6 +67,10 @@ body.light {
   --color-accent: #d1dce5;
   --color-background: #ffffff;
   --color-nav: #ffffff;
+  --color-profile-color-modes-toggle-moon: #ffdf5d;
+  --color-profile-color-modes-toggle-thumb-bg: #2f363d;
+  --color-profile-color-modes-toggle-track-bg: #fff;
+  --color-profile-color-modes-toggle-track-border: #d1d5da;
 }
 
 body.dark {
@@ -78,6 +82,10 @@ body.dark {
   --color-accent: #424242;
   --color-background: #121212;
   --color-nav: #1b1b1b;
+  --color-profile-color-modes-toggle-moon: #f8e3a1;
+  --color-profile-color-modes-toggle-thumb-bg: #6e40c9;
+  --color-profile-color-modes-toggle-track-bg: #271052;
+  --color-profile-color-modes-toggle-track-border: #3c1e70;
 }
 
 /* HTML elements */

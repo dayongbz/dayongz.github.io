@@ -7,7 +7,14 @@ const Layout = ({ location, title, children }) => {
   const isRootPath = location.pathname === rootPath
 
   return (
-    <>
+    <div
+      style={{
+        color: "var(--color-text)",
+        backgroundColor: "var(--color-background)",
+        transition:
+          "color 0.3s ease, background-color 0.3s ease, border 0.3s ease",
+      }}
+    >
       <GlobalNav title={title} />
       <div className="global-wrapper" data-is-root-path={isRootPath}>
         <header>
@@ -15,7 +22,7 @@ const Layout = ({ location, title, children }) => {
         </header>
         <main>{children}</main>
       </div>
-    </>
+    </div>
   )
 }
 

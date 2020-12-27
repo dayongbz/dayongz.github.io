@@ -1,9 +1,8 @@
 import React, { memo } from "react"
-import Switch from "react-switch"
+import Toggle from "../Toggle"
 import useDarkMode from "use-dark-mode"
 
-import DarkIcon from "../icon/DarkIcon"
-import LightIcon from "../icon/LightIcon"
+import MoonIcon from "../icon/MoonIcon"
 
 const ThemeSwitch = memo(() => {
   const darkMode = useDarkMode(false, {
@@ -12,15 +11,10 @@ const ThemeSwitch = memo(() => {
   })
 
   return (
-    <Switch
+    <Toggle
       checked={darkMode.value}
       onChange={darkMode.toggle}
-      onColor="#666666"
-      offColor="#d1dce5"
-      checkedIcon={<DarkIcon />}
-      uncheckedIcon={<LightIcon />}
-      onHandleColor="#1b1b1b"
-      offHandleColor="#ffffff"
+      icons={<MoonIcon />}
     />
   )
 })
