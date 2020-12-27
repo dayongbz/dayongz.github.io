@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, memo, useContext } from "react"
-import { GlobalStateContext } from "../../context/GlobalContextProvider"
+import { GlobalDarkModeContext } from "../../context/GlobalContextProvider"
 
 const src = "https://utteranc.es/client.js"
 
 const Utterances = memo(({ repo }) => {
   const containerRef = useRef()
-  const state = useContext(GlobalStateContext)
+  const darkMode = useContext(GlobalDarkModeContext)
 
   useEffect(() => {
     const parent = containerRef.current
@@ -15,7 +15,7 @@ const Utterances = memo(({ repo }) => {
       repo,
       "issue-term": "pathname",
       label: "comment",
-      theme: state.theme === "dark" ? "github-dark" : "github-light",
+      theme: !!darkMode.value ? "github-dark" : "github-light",
       crossOrigin: "anonymous",
       async: "true",
     }
@@ -28,7 +28,7 @@ const Utterances = memo(({ repo }) => {
     return () => {
       parent.removeChild(parent.firstChild)
     }
-  }, [repo, state.theme])
+  }, [repo, darkMode.value])
 
   return <div ref={containerRef} />
 })

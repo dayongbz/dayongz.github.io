@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Utterances from "../components/utterances"
 import TableOfContents from "../components/toc"
-import { GlobalStateContext } from "../context/GlobalContextProvider"
 import SponsorButton from "../components/sponsor-button"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -16,7 +15,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
   const avatar = data?.avatar?.childImageSharp?.fixed
   const isToc = post.tableOfContents.length > 0
-  const state = useContext(GlobalStateContext)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -61,7 +59,7 @@ const BlogPostTemplate = ({ data, location }) => {
         />
       </div>
       <hr />
-      {state.theme && <Utterances repo="dayongbz/utterances_comment" />}
+      <Utterances repo="dayongbz/utterances_comment" />
       <nav className="blog-post-nav">
         <ul
           style={{

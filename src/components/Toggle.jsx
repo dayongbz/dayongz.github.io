@@ -170,7 +170,7 @@ export default class Toggle extends PureComponent {
         onTouchEnd={this.handleTouchEnd}
         onKeyDown={this.handleClick}
         role="checkbox"
-        aria-checked="true"
+        aria-checked="false"
         aria-label="Toggle dark mode"
         tabIndex="0"
       >
@@ -186,6 +186,8 @@ export default class Toggle extends PureComponent {
           onBlur={this.handleBlur}
           className="react-toggle-screenreader-only"
           type="checkbox"
+          aria-checked="false"
+          aria-label="Toggle dark mode"
         />
       </div>
     )
