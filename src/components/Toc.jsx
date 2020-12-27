@@ -38,6 +38,8 @@ const TableOfContents = memo(({ items }) => {
     }
   }, [currentHeaderUrl, items])
 
+  console.log(items)
+
   return (
     <>
       <div className="toc-wrapper">

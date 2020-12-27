@@ -27,7 +27,7 @@ const BlogIndex = ({ data, location }) => {
       const currentInnerHeight = window.innerHeight
       const windowBottom = currentOffsetY + currentInnerHeight
       const bodyHeight = parseInt(document.body.getBoundingClientRect().height)
-      if (windowBottom === bodyHeight && state.maxPosts > state.posts) {
+      if (windowBottom >= bodyHeight && state.maxPosts > state.posts) {
         dispatch({ type: "ADD_POST" })
       }
     }

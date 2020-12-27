@@ -69,6 +69,8 @@ body.light {
   --color-background: #ffffff;
   --color-border-primary: #e1e4e8;
   --color-bg-tertiary: #f6f8fa;
+  --color-markdown-blockquote-border: #dfe2e5;
+  --color-markdown-code-bg: rgba(27, 31, 35, 0.05);
   --color-profile-color-modes-toggle-moon: #ffdf5d;
   --color-profile-color-modes-toggle-thumb-bg: #2f363d;
   --color-profile-color-modes-toggle-track-bg: #fff;
@@ -85,6 +87,8 @@ body.dark {
   --color-background: #0d1117;
   --color-border-primary: #30363d;
   --color-bg-tertiary: #161b22;
+  --color-markdown-blockquote-border: #3b434b;
+  --color-markdown-code-bg: rgba(240, 246, 255, 0.15);
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-keyword: #ff7b72;
   --color-profile-color-modes-toggle-moon: #f8e3a1;
@@ -214,6 +218,7 @@ ol li {
   padding-left: var(--spacing-0);
   margin-bottom: calc(var(--spacing-8) / 2);
   overflow-wrap: break-word;
+  list-style: inside;
 }
 
 li > p {
@@ -231,17 +236,10 @@ li > ul {
 
 blockquote {
   color: var(--color-text-light);
-  margin-left: calc(-1 * var(--spacing-6));
-  margin-right: var(--spacing-8);
-  padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
-  border-left: var(--spacing-1) solid var(--color-primary);
-  font-size: var(--fontSize-2);
-  font-style: italic;
-  margin-bottom: var(--spacing-8);
-}
-
-blockquote > :last-child {
-  margin-bottom: var(--spacing-0);
+  padding: var(--spacing-0) var(--spacing-4);
+  border-left: var(--spacing-1) solid var(--color-markdown-blockquote-border);
+  font-size: var(--fontSize-1);
+  margin: var(--spacing-0);
 }
 
 blockquote > ul,
@@ -253,11 +251,19 @@ table {
   width: 100%;
   margin-bottom: var(--spacing-8);
   border-collapse: collapse;
-  border-spacing: 0.25rem;
+  border-spacing: var(--spacing-0);
 }
 
 table thead tr th {
   border-bottom: 1px solid var(--color-border-primary);
+}
+
+code {
+  font-size: var(--fontSize-0);
+  padding: var(--spacing-1) var(--spacing-1);
+  background-color: var(--color-markdown-code-bg);
+  border-radius: 6px;
+  font-family: var(--fontFamily-code);
 }
 
 /* Link */
@@ -494,6 +500,8 @@ pre.grvsc-container {
 
 pre.grvsc-container code {
   font-family: var(--fontFamily-code);
+  background-color: transparent;
+  padding: var(--spacing-0);
 }
 
 /* Media queries */
