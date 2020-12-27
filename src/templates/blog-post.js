@@ -2,11 +2,11 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Utterances from "../components/utterances"
-import TableOfContents from "../components/toc"
-import SponsorButton from "../components/sponsor-button"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
+import Utterances from "../components/Utterances"
+import TableOfContents from "../components/Toc"
+import SponsorButton from "../components/SponsorButton"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark

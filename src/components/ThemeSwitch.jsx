@@ -1,8 +1,8 @@
 import React, { memo, useContext, useState, useEffect } from "react"
-import Toggle from "../Toggle"
-import { GlobalDarkModeContext } from "../../context/GlobalContextProvider"
+import Toggle from "./Toggle"
+import { GlobalDarkModeContext } from "../context/GlobalContextProvider"
 
-import MoonIcon from "../icon/MoonIcon"
+import MoonIcon from "./icon/MoonIcon"
 
 const ThemeSwitch = memo(() => {
   const [darkMode, setDarkMode] = useState()

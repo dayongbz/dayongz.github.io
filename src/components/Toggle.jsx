@@ -4,7 +4,6 @@
  **/
 
 import React, { PureComponent } from "react"
-import "./Toggle.css"
 
 const pointerCoord = event => {
   // get coordinates for either a mouse click

@@ -43,7 +43,21 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: {
+                default: "GitHub Dark",
+                parentSelector: {
+                  "body.dark": "GitHub Dark",
+                  "body.light": "GitHub Light",
+                },
+              },
+              extensions: [
+                `${__dirname}/extensions/GitHub.github-vscode-theme-1.1.5.vsix`,
+              ], // Or install your favorite theme from GitHub
+            },
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {

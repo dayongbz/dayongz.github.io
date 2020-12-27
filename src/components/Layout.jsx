@@ -1,6 +1,6 @@
 import React from "react"
-import ThemeSwitch from "../theme-switch"
-import GlobalNav from "../global-nav"
+import ThemeSwitch from "./ThemeSwitch"
+import GlobalNav from "./GlobalNav"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`

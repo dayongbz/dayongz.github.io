@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, memo, useContext } from "react"
-import { GlobalDarkModeContext } from "../../context/GlobalContextProvider"
+import { GlobalDarkModeContext } from "../context/GlobalContextProvider"
 
 const src = "https://utteranc.es/client.js"
 

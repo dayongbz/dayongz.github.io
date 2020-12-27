@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
 
 import {
   GlobalStateContext,
