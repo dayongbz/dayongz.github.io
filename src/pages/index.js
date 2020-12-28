@@ -12,7 +12,7 @@ import {
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allMdx.nodes
   const state = useContext(GlobalStateContext)
   const dispatch = useContext(GlobalDispatchContext)
 
@@ -104,7 +104,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
         fields {

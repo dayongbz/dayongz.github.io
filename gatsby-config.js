@@ -28,9 +28,10 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -41,6 +42,15 @@ module.exports = {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `anchor-header`,
+              maintainCase: false,
+              removeAccents: true,
+              elements: [`h2`, `h3`, `h4`],
             },
           },
           {
@@ -60,15 +70,6 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              className: `anchor-header`,
-              maintainCase: false,
-              removeAccents: true,
-              elements: [`h2`, `h3`, `h4`],
-            },
-          },
         ],
       },
     },
@@ -80,7 +81,7 @@ module.exports = {
         trackingId: `UA-176287431-1`,
       },
     },
-    `gatsby-plugin-feed`,
+    `gatsby-plugin-feed-mdx`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

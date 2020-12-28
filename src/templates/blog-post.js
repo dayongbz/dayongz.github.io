@@ -1,20 +1,21 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Image from "gatsby-image"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Utterances from "../components/Utterances"
-import TableOfContents from "../components/Toc"
+// import TableOfContents from "../components/Toc"
 import SponsorButton from "../components/SponsorButton"
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const author = data.site.siteMetadata?.author
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
   const avatar = data?.avatar?.childImageSharp?.fixed
-  const isToc = post.tableOfContents.length > 0
+  // const isToc = post.tableOfContents.length > 0
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -45,11 +46,10 @@ const BlogPostTemplate = ({ data, location }) => {
           </div>
         </header>
         <div className="section-wrapper">
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
-          {isToc && <TableOfContents items={post.tableOfContents} />}
+          <section itemProp="articleBody">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </section>
+          {/* {isToc && <TableOfContents items={post.tableOfContents} />} */}
         </div>
       </article>
       <div className="sponsor-button-wrapper">
@@ -113,10 +113,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       tableOfContents
       frontmatter {
         title
@@ -124,7 +124,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
       }
@@ -132,7 +132,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }
