@@ -534,9 +534,3 @@ pre.grvsc-container code {
     --fontSize-root: 16px;
   }
 }
-
-@media (max-width: 1200px) {
-  .toc-wrapper {
-    display: none;
-  }
-}

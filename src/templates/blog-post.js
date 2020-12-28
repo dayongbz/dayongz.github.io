@@ -6,7 +6,7 @@ import Image from "gatsby-image"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Utterances from "../components/Utterances"
-// import TableOfContents from "../components/Toc"
+import TableOfContents from "../components/TableOfContents"
 import SponsorButton from "../components/SponsorButton"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -14,8 +14,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const author = data.site.siteMetadata?.author
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  const avatar = data?.avatar?.childImageSharp?.fixed
-  // const isToc = post.tableOfContents.length > 0
+  const avatar = data.avatar?.childImageSharp.fixed
+  const tocItems = post.tableOfContents?.items
+  const isTOCVisible = tocItems?.length
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -49,7 +50,9 @@ const BlogPostTemplate = ({ data, location }) => {
           <section itemProp="articleBody">
             <MDXRenderer>{post.body}</MDXRenderer>
           </section>
-          {/* {isToc && <TableOfContents items={post.tableOfContents} />} */}
+          {isTOCVisible && (
+            <TableOfContents items={tocItems} location={location} depth={3} />
+          )}
         </div>
       </article>
       <div className="sponsor-button-wrapper">
