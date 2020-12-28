@@ -67,6 +67,7 @@ body.light {
   --color-heading-black: #24292e;
   --color-accent: #d1dce5;
   --color-background: #ffffff;
+  --color-background-op: rgba(255, 255, 255, 0.75);
   --color-border-primary: #e1e4e8;
   --color-bg-tertiary: #f6f8fa;
   --color-markdown-blockquote-border: #dfe2e5;
@@ -85,6 +86,7 @@ body.dark {
   --color-heading-black: #c9d1d9;
   --color-accent: #424242;
   --color-background: #0d1117;
+  --color-background-op: rgba(13, 17, 23, 0.75);
   --color-border-primary: #30363d;
   --color-bg-tertiary: #161b22;
   --color-markdown-blockquote-border: #3b434b;
@@ -307,7 +309,7 @@ a:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-background);
+  background-color: var(--color-background-op);
   height: 65px;
   padding: 0 16px;
   border-bottom: 1px solid var(--color-border-primary);
@@ -315,6 +317,7 @@ a:focus {
   transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease,
     border 0.3s ease;
   color: var(--color-text);
+  backdrop-filter: blur(5px);
 }
 
 .global-nav.disable {
