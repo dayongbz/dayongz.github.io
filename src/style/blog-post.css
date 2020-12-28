@@ -1,0 +1,24 @@
+.blog-post {
+  position: relative;
+}
+
+.blog-post header h1 {
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
+}
+
+.blog-post header .info-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.blog-post header p {
+  font-size: var(--fontSize-1);
+  color: var(--color-text-light);
+  font-family: var(--font-heading);
+  margin: 0 0 0 var(--spacing-2);
+}
+
+.blog-post-nav ul {
+  margin: var(--spacing-0);
+}

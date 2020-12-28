@@ -3,7 +3,7 @@
  * Forked from https://github.com/gatsbyjs/gatsby/
  **/
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, memo } from "react"
 import { Link } from "gatsby"
 import { useActiveHash } from "../hooks/useActiveHash"
 
@@ -88,7 +88,7 @@ const createItems = (
   )
 }
 
-const TableOfContents = ({ items, depth, location }) => {
+const TableOfContents = memo(({ items, depth, location }) => {
   const [isDesktop, setIsDesktop] = useState(false)
   const activeHash = useActiveHash(getHeadingIds(items, true, depth))
 
@@ -109,6 +109,6 @@ const TableOfContents = ({ items, depth, location }) => {
       </div>
     </nav>
   ) : null
-}
+})
 
 export default TableOfContents

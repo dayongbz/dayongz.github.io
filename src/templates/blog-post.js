@@ -17,7 +17,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const avatar = data.avatar?.childImageSharp.fixed
   const tocItems = post.tableOfContents?.items
   const isTOCVisible = tocItems?.length
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -46,14 +45,14 @@ const BlogPostTemplate = ({ data, location }) => {
             </p>
           </div>
         </header>
-        <div className="section-wrapper">
-          <section itemProp="articleBody">
+        <div className="markdown-body">
+          <article itemProp="articleBody">
             <MDXRenderer>{post.body}</MDXRenderer>
-          </section>
-          {isTOCVisible && (
-            <TableOfContents items={tocItems} location={location} depth={3} />
-          )}
+          </article>
         </div>
+        {isTOCVisible && (
+          <TableOfContents items={tocItems} location={location} depth={3} />
+        )}
       </article>
       <div className="sponsor-button-wrapper">
         <SponsorButton

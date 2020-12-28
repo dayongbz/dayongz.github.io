@@ -6,12 +6,6 @@ const reducer = (state, action) => {
         posts: state.posts + 3,
       }
     }
-    case "SET_POST": {
-      return {
-        ...state,
-        posts: action.posts,
-      }
-    }
     case "SET_MAX_POST": {
       return {
         ...state,

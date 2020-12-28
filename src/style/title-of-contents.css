@@ -1,0 +1,41 @@
+.toc-wrapper {
+  position: absolute;
+  top: 0;
+  right: -13rem;
+  height: 100%;
+  font-size: var(--fontSize-0);
+  max-width: 150px;
+}
+
+.toc-wrapper ul li,
+.toc-wrapper ol li {
+  list-style: none;
+}
+
+.toc {
+  position: sticky;
+  top: 9.2rem;
+}
+
+.toc .title {
+  margin: 0 0 var(--spacing-1);
+  font-weight: var(--fontWeight-bold);
+  font-size: var(--fontSize-1);
+}
+
+.toc a {
+  color: var(--color-text-light);
+}
+
+.toc .active {
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.toc a:hover {
+  color: var(--color-primary);
+}
+
+.toc ul {
+  list-style-type: none;
+}

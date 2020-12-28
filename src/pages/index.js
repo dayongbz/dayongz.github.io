@@ -17,7 +17,6 @@ const BlogIndex = ({ data, location }) => {
   const dispatch = useContext(GlobalDispatchContext)
 
   useEffect(() => {
-    dispatch({ type: "SET_POST", posts: 3 })
     dispatch({ type: "SET_MAX_POST", maxPosts: posts.length })
   }, [posts, dispatch])
 

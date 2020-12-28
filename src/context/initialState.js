@@ -1,5 +1,5 @@
 const initialState = {
-  posts: null,
+  posts: 3,
   maxPosts: null,
 }
 
