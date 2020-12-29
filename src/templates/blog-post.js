@@ -2,12 +2,57 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Image from "gatsby-image"
+import { css } from "@emotion/react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Utterances from "../components/Utterances"
 import TableOfContents from "../components/TableOfContents"
 import SponsorButton from "../components/SponsorButton"
+
+const markdownBody = css`
+  ul,
+  ol {
+    ul,
+    ol {
+      margin-top: var(--spacing-0);
+      margin-bottom: var(--spacing-0);
+    }
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--spacing-8);
+    tr {
+      background-color: var(--color-background);
+      border-top: 1px solid var(--color-markdown-table-tr-border);
+      :nth-of-type(2n) {
+        background-color: var(--color-bg-tertiary);
+      }
+    }
+
+    td,
+    th {
+      padding: var(--spacing-2) var(--spacing-3);
+      border: 1px solid var(--color-markdown-table-border);
+    }
+  }
+
+  blockquote {
+    color: var(--color-text-light);
+    padding: var(--spacing-0) var(--spacing-4);
+    border-left: var(--spacing-1) solid var(--color-markdown-blockquote-border);
+    margin: var(--spacing-0);
+  }
+
+  code {
+    font-size: var(--fontSize-0);
+    padding: var(--spacing-1) var(--spacing-1);
+    background-color: var(--color-markdown-code-bg);
+    border-radius: 6px;
+  }
+`
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
@@ -45,7 +90,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </p>
           </div>
         </header>
-        <div className="markdown-body">
+        <div css={markdownBody} className="markdown-body">
           <article itemProp="articleBody">
             <MDXRenderer>{post.body}</MDXRenderer>
           </article>

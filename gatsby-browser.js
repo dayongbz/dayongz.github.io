@@ -1,21 +1,34 @@
 import React from "react"
+import { Global, css } from "@emotion/react"
+
+// css variable
+import globalStyle from "./src/css/global-style"
 
 // react context
 import GlobalContextProvider from "./src/context/GlobalContextProvider"
 
 // normalize CSS across browsers
-import "./src/style/normalize.css"
+import "./src/css/normalize.css"
 
 // Toggle CSS
-import "./src/style/Toggle.css"
+import "./src/css/Toggle.css"
 
 // custom CSS styles
-import "./src/style/style.css"
+import "./src/css/style.css"
 
 // custom web fonts
 import "fontsource-nanum-gothic"
 
-// react context
 export const wrapRootElement = ({ element }) => {
-  return <GlobalContextProvider>{element}</GlobalContextProvider>
+  return (
+    // react context
+    <GlobalContextProvider>
+      <Global
+        styles={css`
+          ${globalStyle};
+        `}
+      />
+      {element}
+    </GlobalContextProvider>
+  )
 }

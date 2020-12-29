@@ -17,7 +17,7 @@ const PostList = memo(({ posts, postsCount, maxPostsCount, dispatch }) => {
           }
         })
       },
-      { threshold: 1.0 }
+      { threshold: 0.8 }
     )
     if (target) observer.observe(target)
     return () => {
