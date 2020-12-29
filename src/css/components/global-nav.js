@@ -1,6 +1,6 @@
 import { css } from "@emotion/react"
 
-import flexCenter from "./flex-center"
+import flexCenter from "./common/flex-center"
 
 const globalNav = css`
   ${flexCenter};

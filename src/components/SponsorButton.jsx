@@ -1,12 +1,17 @@
 import React, { memo } from "react"
+import sponsorButton from "../css/components/sponsor-button"
 
 const SponsorButton = memo(({ href, text }) => {
   return (
-    <div className="sponsor-button">
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        <span>{text}</span>
-      </a>
-    </div>
+    <a
+      css={sponsorButton}
+      role="button"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {text}
+    </a>
   )
 })
 

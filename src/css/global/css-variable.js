@@ -3,6 +3,7 @@ import { css } from "@emotion/react"
 export const size = css`
   :root {
     --maxWidth-none: "none";
+    --maxWidth-3xs: 10rem;
     --maxWidth-xs: 20rem;
     --maxWidth-sm: 24rem;
     --maxWidth-md: 28rem;
@@ -82,8 +83,9 @@ export const color = css`
 
 export const font = css`
   :root {
-    --fontFamily-sans: -apple-system, BlinkMacSystemFont, Helvetica, 나눔고딕,
-      "Nanum Gothic", Segoe UI, Arial, sans-serif, Apple Color Emoji,
+    --fontFamily-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      Helvetica, Malgun Gothic, "맑은 고딕", 나눔고딕, "Nanum Gothic",
+      "Noto Sans KR", Segoe UI, Arial, sans-serif, Apple Color Emoji,
       Segoe UI Emoji;
     --fontFamily-code: SFMono-Regular, Consolas, Liberation Mono, Menlo,
       monospace;

@@ -2,57 +2,15 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Image from "gatsby-image"
-import { css } from "@emotion/react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Utterances from "../components/Utterances"
 import TableOfContents from "../components/TableOfContents"
 import SponsorButton from "../components/SponsorButton"
-
-const markdownBody = css`
-  ul,
-  ol {
-    ul,
-    ol {
-      margin-top: var(--spacing-0);
-      margin-bottom: var(--spacing-0);
-    }
-  }
-
-  table {
-    display: block;
-    width: 100%;
-    margin-bottom: var(--spacing-8);
-    tr {
-      background-color: var(--color-background);
-      border-top: 1px solid var(--color-markdown-table-tr-border);
-      :nth-of-type(2n) {
-        background-color: var(--color-bg-tertiary);
-      }
-    }
-
-    td,
-    th {
-      padding: var(--spacing-2) var(--spacing-3);
-      border: 1px solid var(--color-markdown-table-border);
-    }
-  }
-
-  blockquote {
-    color: var(--color-text-light);
-    padding: var(--spacing-0) var(--spacing-4);
-    border-left: var(--spacing-1) solid var(--color-markdown-blockquote-border);
-    margin: var(--spacing-0);
-  }
-
-  code {
-    font-size: var(--fontSize-0);
-    padding: var(--spacing-1) var(--spacing-1);
-    background-color: var(--color-markdown-code-bg);
-    border-radius: 6px;
-  }
-`
+import { sponsorButtonWrapper } from "../css/components/sponsor-button"
+import blogPost, { infoWrapper } from "../css/components/blog-post"
+import markdownBody from "../css/components/markdownBody"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
@@ -70,12 +28,13 @@ const BlogPostTemplate = ({ data, location }) => {
       />
       <article
         className="blog-post"
+        css={blogPost}
         itemScope
         itemType="http://schema.org/Article"
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <div className="info-wrapper">
+          <div css={infoWrapper}>
             {avatar && (
               <Image
                 fixed={avatar}
@@ -90,8 +49,8 @@ const BlogPostTemplate = ({ data, location }) => {
             </p>
           </div>
         </header>
-        <div css={markdownBody} className="markdown-body">
-          <article itemProp="articleBody">
+        <div className="markdown-body">
+          <article css={markdownBody} itemProp="articleBody">
             <MDXRenderer>{post.body}</MDXRenderer>
           </article>
         </div>
@@ -99,7 +58,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <TableOfContents items={tocItems} location={location} depth={3} />
         )}
       </article>
-      <div className="sponsor-button-wrapper">
+      <div css={sponsorButtonWrapper}>
         <SponsorButton
           href="https://www.buymeacoffee.com/dayongbz"
           text="🍗 Buy me a chicken"

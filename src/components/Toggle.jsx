@@ -4,7 +4,12 @@
  **/
 
 import React, { PureComponent } from "react"
-import toggle from "../css/components/toggle"
+import {
+  toggle,
+  track,
+  thumb,
+  screenreaderOnly,
+} from "../css/components/toggle"
 
 const pointerCoord = event => {
   // get coordinates for either a mouse click
@@ -175,17 +180,17 @@ export default class Toggle extends PureComponent {
         aria-label="Toggle dark mode"
         tabIndex="0"
       >
-        <div className="react-toggle-track" />
-        <div className="react-toggle-thumb">{_icons}</div>
+        <div css={track} />
+        <div css={thumb}>{_icons}</div>
 
         <input
+          css={screenreaderOnly}
           {...inputProps}
           ref={ref => {
             this.input = ref
           }}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          className="react-toggle-screenreader-only"
           type="checkbox"
           aria-checked="false"
           aria-label="Toggle dark mode"

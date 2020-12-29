@@ -108,7 +108,7 @@ module.exports = {
       resolve: `gatsby-plugin-emotion`,
       options: {
         autoLabel: "always",
-        labelFormat: "[dirname]-[filename]--[local]",
+        labelFormat: "[filename]--[local]",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

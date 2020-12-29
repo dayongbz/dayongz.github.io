@@ -6,6 +6,13 @@
 import React, { useState, useEffect, memo } from "react"
 import { Link } from "gatsby"
 import { useActiveHash } from "../hooks/useActiveHash"
+import {
+  toc,
+  tocWrapper,
+  tocTitle,
+  tocActiveLink,
+  tocLink,
+} from "../css/components/toc-of-contents"
 
 const getHeadingIds = (
   toc,
@@ -64,7 +71,7 @@ const createItems = (
         <li key={location.pathname + (item.url || depth + `-` + index)}>
           {item.url && (
             <Link
-              className={isActive ? "active" : null}
+              css={isActive ? tocActiveLink : tocLink}
               to={location.pathname + item.url}
             >
               {item.title}
@@ -102,9 +109,9 @@ const TableOfContents = memo(({ items, depth, location }) => {
   }, [])
 
   return items && isDesktop ? (
-    <nav className="toc-wrapper">
-      <div className="toc">
-        <p className="title">Table of Contents</p>
+    <nav css={tocWrapper}>
+      <div css={toc}>
+        <p css={tocTitle}>Table of Contents</p>
         <ul>{createItems(items, location, 1, depth, activeHash, isDesktop)}</ul>
       </div>
     </nav>
