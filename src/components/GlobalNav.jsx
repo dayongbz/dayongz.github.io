@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, memo } from "react"
 import { Link } from "gatsby"
 
+import globalNav from "../css/components/global-nav"
+
 const GlobalNav = memo(({ title }) => {
   const navRef = useRef()
 
@@ -25,7 +27,7 @@ const GlobalNav = memo(({ title }) => {
     }
   }, [navRef])
   return (
-    <nav ref={navRef} className="global-nav">
+    <nav css={globalNav} ref={navRef}>
       <Link className="header-link-home" to="/">
         <span>{title}</span>
       </Link>

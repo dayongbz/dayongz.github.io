@@ -12,6 +12,10 @@ const ThemeSwitch = memo(() => {
     setDarkMode(darkModeCont)
   }, [darkModeCont])
 
+  if (!darkMode) {
+    return null
+  }
+
   return (
     <Toggle
       checked={darkMode?.value}

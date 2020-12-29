@@ -82,8 +82,8 @@ export const color = css`
 
 export const font = css`
   :root {
-    --fontFamily-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
-      나눔고딕, "Nanum Gothic", Arial, sans-serif, Apple Color Emoji,
+    --fontFamily-sans: -apple-system, BlinkMacSystemFont, Helvetica, 나눔고딕,
+      "Nanum Gothic", Segoe UI, Arial, sans-serif, Apple Color Emoji,
       Segoe UI Emoji;
     --fontFamily-code: SFMono-Regular, Consolas, Liberation Mono, Menlo,
       monospace;

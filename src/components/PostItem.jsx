@@ -1,13 +1,14 @@
 import React, { memo } from "react"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
+import postList from "../css/components/post-list"
 
 const PostItem = memo(({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
   const featuredImgFluid = post.frontmatter.featuredImage
 
   return (
-    <li className="post-list-item">
+    <li css={postList}>
       <article itemScope itemType="http://schema.org/Article">
         {featuredImgFluid && (
           <Image

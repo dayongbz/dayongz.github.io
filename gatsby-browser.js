@@ -10,9 +10,6 @@ import GlobalContextProvider from "./src/context/GlobalContextProvider"
 // normalize CSS across browsers
 import "./src/css/normalize.css"
 
-// Toggle CSS
-import "./src/css/Toggle.css"
-
 // custom CSS styles
 import "./src/css/style.css"
 

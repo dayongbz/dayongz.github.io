@@ -4,6 +4,7 @@
  **/
 
 import React, { PureComponent } from "react"
+import toggle from "../css/components/toggle"
 
 const pointerCoord = event => {
   // get coordinates for either a mouse click
@@ -162,6 +163,7 @@ export default class Toggle extends PureComponent {
 
     return (
       <div
+        css={toggle}
         className={classes}
         onClick={this.handleClick}
         onTouchStart={this.handleTouchStart}

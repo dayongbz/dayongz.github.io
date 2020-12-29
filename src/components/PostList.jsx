@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, memo } from "react"
+
 import PostItem from "./PostItem"
 
 const PostList = memo(({ posts, postsCount, maxPostsCount, dispatch }) => {
