@@ -21,25 +21,6 @@ const BlogIndex = ({ data, location }) => {
     dispatch({ type: "SET_MAX_POST", maxPosts: posts.length })
   }, [posts, dispatch])
 
-  useEffect(() => {
-    // add post count
-    const addPosts = () => {
-      const currentOffsetY = window.pageYOffset
-      const currentInnerHeight = window.innerHeight
-      const windowBottom = currentOffsetY + currentInnerHeight
-      const bodyHeight = parseInt(document.body.getBoundingClientRect().height)
-
-      if (windowBottom >= bodyHeight && state.maxPosts > state.posts) {
-        dispatch({ type: "ADD_POST" })
-      }
-    }
-
-    window.addEventListener("scroll", addPosts)
-    return () => {
-      window.removeEventListener("scroll", addPosts)
-    }
-  }, [dispatch, state.maxPosts, state.posts])
-
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -56,9 +37,12 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <ol style={{ listStyle: `none` }}>
-        <PostList posts={posts} postsCount={state.posts} />
-      </ol>
+      <PostList
+        posts={posts}
+        postsCount={state.posts}
+        maxPostsCount={state.maxPosts}
+        dispatch={dispatch}
+      />
     </Layout>
   )
 }
