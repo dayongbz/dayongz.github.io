@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Image from "gatsby-image"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
@@ -9,6 +8,8 @@ import Utterances from "../components/Utterances"
 import TableOfContents from "../components/TableOfContents"
 import SponsorButton from "../components/SponsorButton"
 import Series from "../components/Series"
+import BlogPostNav from "../components/BlogPostNav"
+
 import { sponsorButtonWrapper } from "../css/components/sponsor-button"
 import blogPost, { infoWrapper } from "../css/components/blog-post"
 import markdownBody from "../css/components/markdownBody"
@@ -87,34 +88,9 @@ const BlogPostTemplate = ({ data, location }) => {
           text="🍗 Buy me a chicken"
         />
       </div>
-      <hr />
+      <hr ref={observeElemRef} />
       {isUtterence ? <Utterances repo="dayongbz/utterances_comment" /> : null}
-      <nav ref={observeElemRef} className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <BlogPostNav previous={previous} next={next} />
     </Layout>
   )
 }
@@ -154,6 +130,13 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     next: mdx(id: { eq: $nextPostId }) {
@@ -162,6 +145,13 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     series: allMdx(

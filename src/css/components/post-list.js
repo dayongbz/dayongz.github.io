@@ -1,7 +1,7 @@
 import { css } from "@emotion/react"
 
 const postList = css`
-  border-top: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-primary);
   margin: var(--spacing-0);
 
   article {

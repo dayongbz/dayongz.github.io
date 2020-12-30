@@ -12,6 +12,7 @@ export const size = css`
     --maxWidth-2xl: 42rem;
     --maxWidth-3xl: 48rem;
     --maxWidth-4xl: 56rem;
+    --maxWidth-half: "50%";
     --maxWidth-full: "100%";
     --maxWidth-wrapper: var(--maxWidth-3xl);
     --spacing-px: "1px";
@@ -33,6 +34,10 @@ export const size = css`
 `
 
 export const color = css`
+  :root {
+    --color-white: #fff;
+    --color-black: #000;
+  }
   body.light {
     --color-primary: #0366d6;
     --color-text: #24292e;
@@ -46,6 +51,7 @@ export const color = css`
     --color-border-primary: #e1e4e8;
     --color-border-secondary: #eaecef;
     --color-bg-tertiary: #f6f8fa;
+    --color-tag-primary: #0366d6;
     --color-markdown-blockquote-border: #dfe2e5;
     --color-markdown-code-bg: rgba(27, 31, 35, 0.05);
     --color-markdown-table-border: #dfe2e5;
@@ -69,6 +75,7 @@ export const color = css`
     --color-border-primary: #30363d;
     --color-border-secondary: #21262d;
     --color-bg-tertiary: #161b22;
+    --color-tag-primary: #0366d6;
     --color-markdown-blockquote-border: #3b434b;
     --color-markdown-code-bg: rgba(240, 246, 255, 0.15);
     --color-markdown-table-border: #3b434b;
