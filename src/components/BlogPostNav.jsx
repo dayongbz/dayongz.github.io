@@ -10,7 +10,7 @@ import blogPostNav, {
 import label from "../css/components/common/label"
 
 export const BlogPostNavItem = memo(({ type, post }) => {
-  const featuredImg = post.frontmatter.featuredImage
+  const featuredImg = post?.frontmatter.featuredImage
   return (
     <div css={blogPostNavItem}>
       {post && (
