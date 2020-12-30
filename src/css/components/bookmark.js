@@ -5,7 +5,7 @@ import flexCenter from "./common/flex-center"
 export const bookmarkFooter = css`
   ${flexCenter};
   justify-content: space-between;
-  margin-top: var(--spacing-6);
+  margin-top: var(--spacing-8);
   p {
     color: var(--color-text-light);
     margin: var(--spacing-0);
@@ -21,13 +21,16 @@ const bookmark = css`
   font-size: var(--fontSize-0);
 
   h2 {
-    margin: var(--spacing-0) var(--spacing-0) var(--spacing-4);
+    margin: var(--spacing-0) var(--spacing-0) var(--spacing-6);
     font-size: var(--fontSize-3);
   }
 
   ul {
-    list-style-type: none;
-    margin: var(--sapcing-0);
+    list-style-type: decimal;
+  }
+
+  ul ::marker {
+    color: var(--color-text-light);
   }
 
   a {
