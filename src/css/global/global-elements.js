@@ -128,7 +128,7 @@ export const prose = css`
 
 const link = css`
   a {
-    color: var(--color-primary);
+    color: var(--color-text-link);
     text-decoration: none;
     :hover {
       text-decoration: underline;

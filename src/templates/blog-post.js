@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Image from "gatsby-image"
@@ -24,6 +24,27 @@ const BlogPostTemplate = ({ data, location }) => {
   const series = data.series.edges
   const seriesTitle = post.frontmatter?.series
   const isSeries = !!data.series.edges.length
+  const observeElemRef = useRef()
+  const [isUtterence, setIsUtterence] = useState(false)
+
+  useEffect(() => {
+    const target = observeElemRef.current
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !isUtterence) {
+            setIsUtterence(true)
+          }
+        })
+      },
+      { threshold: 1.0 }
+    )
+
+    if (target) observer.observe(target)
+    return () => {
+      if (target) observer.observe(target)
+    }
+  }, [isUtterence])
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -77,8 +98,8 @@ const BlogPostTemplate = ({ data, location }) => {
         />
       </div>
       <hr />
-      {/* <Utterances repo="dayongbz/utterances_comment" /> */}
-      <nav className="blog-post-nav">
+      {isUtterence && <Utterances repo="dayongbz/utterances_comment" />}
+      <nav ref={observeElemRef} className="blog-post-nav">
         <ul
           style={{
             display: `flex`,

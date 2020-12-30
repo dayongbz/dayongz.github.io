@@ -37,7 +37,7 @@ export const color = css`
     --color-primary: #0366d6;
     --color-text: #24292e;
     --color-text-light: #586069;
-    --color-text-link: #58a6ff;
+    --color-text-link: #0366d6;
     --color-heading: var(----color-text);
     --color-heading-black: var(----color-text);
     --color-accent: #d1dce5;
@@ -60,6 +60,7 @@ export const color = css`
     --color-primary: #58a6ff;
     --color-text: #c9d1d9;
     --color-text-light: #8b949e;
+    --color-text-link: #58a6ff;
     --color-heading: var(----color-text);
     --color-heading-black: var(----color-text);
     --color-accent: #424242;

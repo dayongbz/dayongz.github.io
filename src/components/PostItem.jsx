@@ -6,7 +6,6 @@ import postList from "../css/components/post-list"
 const PostItem = memo(({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
   const featuredImgFluid = post.frontmatter.featuredImage
-
   return (
     <li css={postList}>
       <article itemScope itemType="http://schema.org/Article">
