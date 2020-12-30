@@ -12,6 +12,16 @@ export const seriesFooter = css`
   }
 `
 
+export const backgroundText = css`
+  position: absolute;
+  bottom: calc(-1 * var(--spacing-6));
+  right: var(--spacing-2);
+  font-size: var(--fontSize-7);
+  font-weight: var(--fontWeight-black);
+  font-style: var(--fontStyle-italic);
+  opacity: 0.3;
+`
+
 const series = css`
   position: relative;
   background-color: var(--color-bg-tertiary);
@@ -19,6 +29,7 @@ const series = css`
   padding: var(--spacing-8) var(--spacing-6);
   margin-bottom: var(--spacing-16);
   font-size: var(--fontSize-0);
+  overflow: hidden;
 
   h2 {
     margin: var(--spacing-0) var(--spacing-0) var(--spacing-6);

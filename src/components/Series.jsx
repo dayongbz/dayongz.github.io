@@ -3,7 +3,10 @@ import { Link } from "gatsby"
 
 import ArrowDropDown from "./icon/ArrowDropDown"
 import ArrowDropUp from "./icon/ArrowDropUp"
-import seriesCss, { seriesFooter } from "../css/components/series"
+import seriesCss, {
+  seriesFooter,
+  backgroundText,
+} from "../css/components/series"
 
 const Series = memo(({ series, seriesTitle, postTitle }) => {
   const [listVisible, setListVisible] = useState(false)
@@ -16,9 +19,8 @@ const Series = memo(({ series, seriesTitle, postTitle }) => {
   }
   return (
     <div css={seriesCss}>
-      <h2>
-        <strong>SERIES</strong> - {seriesTitle}
-      </h2>
+      <div css={backgroundText}>SERIES</div>
+      <h2>{seriesTitle}</h2>
       {listVisible && (
         <ul>
           {series.map((item, index) => {
@@ -40,11 +42,11 @@ const Series = memo(({ series, seriesTitle, postTitle }) => {
       <div css={seriesFooter}>
         {listVisible ? (
           <button onClick={onClick}>
-            <ArrowDropUp /> 숨기기
+            <ArrowDropUp /> Hide List
           </button>
         ) : (
           <button onClick={onClick}>
-            <ArrowDropDown /> 목록 보기
+            <ArrowDropDown /> Show List
           </button>
         )}
         <p>

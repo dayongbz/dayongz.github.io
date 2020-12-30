@@ -98,6 +98,7 @@ export const font = css`
     --fontWeight-extrabold: 800;
     --fontWeight-black: 900;
     --fontSize-root: 18px;
+    --fontStyle-italic: italic;
     --lineHeight-none: 1;
     --lineHeight-tight: 1.1;
     --lineHeight-normal: 1.5;
