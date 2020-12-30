@@ -8,6 +8,7 @@ import SEO from "../components/Seo"
 import Utterances from "../components/Utterances"
 import TableOfContents from "../components/TableOfContents"
 import SponsorButton from "../components/SponsorButton"
+import Bookmark from "../components/Bookmark"
 import { sponsorButtonWrapper } from "../css/components/sponsor-button"
 import blogPost, { infoWrapper } from "../css/components/blog-post"
 import markdownBody from "../css/components/markdownBody"
@@ -19,7 +20,11 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
   const avatar = data.avatar?.childImageSharp.fixed
   const tocItems = post.tableOfContents?.items
-  const isTOCVisible = tocItems?.length
+  const isTOCVisible = !!tocItems?.length
+  const series = data.series.edges
+  const seriesTitle = post.frontmatter?.series
+  const isSeries = !!data.series.edges.length
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -48,6 +53,13 @@ const BlogPostTemplate = ({ data, location }) => {
               {author.name} / {post.frontmatter.date}
             </p>
           </div>
+          {isSeries && (
+            <Bookmark
+              series={series}
+              seriesTitle={seriesTitle}
+              postTitle={post.frontmatter.title}
+            />
+          )}
         </header>
         <div className="markdown-body">
           <article css={markdownBody} itemProp="articleBody">
@@ -65,7 +77,7 @@ const BlogPostTemplate = ({ data, location }) => {
         />
       </div>
       <hr />
-      <Utterances repo="dayongbz/utterances_comment" />
+      {/* <Utterances repo="dayongbz/utterances_comment" /> */}
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -103,6 +115,7 @@ export const pageQuery = graphql`
     $id: String!
     $previousPostId: String
     $nextPostId: String
+    $series: String
   ) {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
@@ -128,6 +141,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY.MM.DD")
         description
+        series
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
@@ -144,6 +158,21 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+      }
+    }
+    series: allMdx(
+      sort: { fields: frontmatter___date, order: ASC }
+      filter: { frontmatter: { series: { eq: $series, ne: null } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
-import React, { memo } from "react"
-const MoonIcon = memo(() => {
+import React from "react"
+const MoonIcon = () => {
   return (
     <svg
       style={{
@@ -19,6 +19,6 @@ const MoonIcon = memo(() => {
       ></path>
     </svg>
   )
-})
+}
 
 export default MoonIcon

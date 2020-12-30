@@ -20,6 +20,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            frontmatter {
+              series
+            }
           }
         }
       }
@@ -41,9 +44,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
+    // const seriesNode = posts.filter(({ frontmatter }) => frontmatter.series)
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const series = post.frontmatter?.series || null
       createPage({
         path: post.fields.slug,
         component: blogPost,
@@ -51,6 +56,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+          series,
         },
       })
     })

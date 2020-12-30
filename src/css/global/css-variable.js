@@ -36,10 +36,10 @@ export const color = css`
   body.light {
     --color-primary: #0366d6;
     --color-text: #24292e;
-    --color-text-light: ##586069;
+    --color-text-light: #586069;
     --color-text-link: #58a6ff;
-    --color-heading: #24292e;
-    --color-heading-black: #24292e;
+    --color-heading: var(----color-text);
+    --color-heading-black: var(----color-text);
     --color-accent: #d1dce5;
     --color-background: #ffffff;
     --color-background-op: rgba(255, 255, 255, 0.75);
@@ -60,8 +60,8 @@ export const color = css`
     --color-primary: #58a6ff;
     --color-text: #c9d1d9;
     --color-text-light: #8b949e;
-    --color-heading: #c9d1d9;
-    --color-heading-black: #c9d1d9;
+    --color-heading: var(----color-text);
+    --color-heading-black: var(----color-text);
     --color-accent: #424242;
     --color-background: #0d1117;
     --color-background-op: rgba(13, 17, 23, 0.75);

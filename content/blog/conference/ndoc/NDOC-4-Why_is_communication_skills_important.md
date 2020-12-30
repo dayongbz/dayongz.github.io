@@ -5,6 +5,7 @@ categories: [conference, ndoc]
 tags: [네이버, 네이버 오픈 클래스, 오픈 클래스, naver]
 description: 요즘 IT 회사들에서 필히 요구되는 커뮤니케이션 스킬! 네이버 직원분들을 통해 배워봅시다!
 featuredImage: ./images/2020-08-25-13-53-00.png
+series: 네이버 오픈 클래스
 ---
 
 ![네이버의 커뮤니케이션?](./images/2020-08-25-13-53-00.png)

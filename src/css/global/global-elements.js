@@ -120,6 +120,10 @@ export const prose = css`
   code {
     font-family: var(--fontFamily-code);
   }
+
+  strong {
+    font-weight: var(--fontWeight-bold);
+  }
 `
 
 const link = css`

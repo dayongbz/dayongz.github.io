@@ -5,6 +5,7 @@ categories: [conference, ndoc]
 tags: [네이버, 네이버 오픈 클래스, 오픈 클래스, naver]
 description: 네이버 본사인 그린팩토리 1층부터 시작해서 구내식당, 카페, 사무실, 라운지, 복지 시설등을 알아봅시다!
 featuredImage: ./images/2020-08-24-17-54-00.png
+series: 네이버 오픈 클래스
 ---
 
 ![](./images/2020-08-24-17-49-58.png)

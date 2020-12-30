@@ -32,6 +32,6 @@ export const tocLink = css`
 
 export const tocActiveLink = css`
   ${tocLink};
-  color: var(--color-text);
   font-weight: bold;
+  color: var(--color-primary);
 `

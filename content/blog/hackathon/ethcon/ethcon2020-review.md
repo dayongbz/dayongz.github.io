@@ -5,6 +5,7 @@ categories: [hackathon, ethcon]
 tags: [해커톤, 이드콘, 이드콘2020, 블록체인, 후기]
 description: 개발 뉴비가 처음으로 해커톤에 참여해서 겪었던 일들,,,(그것도 처음 접하는 주제인 블!록!체!인)
 featuredImage: ./images/2020-12-24-230605.jpg
+series: 이드콘2020
 ---
 
 ![ds](./images/2020-12-24-230605.jpg)

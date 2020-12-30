@@ -5,6 +5,7 @@ categories: [conference, ndoc]
 tags: [네이버, 네이버 오픈 클래스, 오픈 클래스, naver]
 description: 개인 업무기기 지원비를 매년 지원, 자율근무제등과 같은 꿈의 복지를 가진 네이버... 멋있다!
 featuredImage: ./images/2020-08-25-13-13-26.png
+series: 네이버 오픈 클래스
 ---
 
 ![메인이미지](./images/2020-08-25-13-13-26.png)
