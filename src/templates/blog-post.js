@@ -18,7 +18,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const author = data.site.siteMetadata?.author
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  const avatar = data.avatar?.childImageSharp.fixed
   const tocItems = post.tableOfContents?.items
   const isTOCVisible = !!tocItems?.length
   const series = data.series.edges
@@ -61,17 +60,8 @@ const BlogPostTemplate = ({ data, location }) => {
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <div css={infoWrapper}>
-            {avatar && (
-              <Image
-                fixed={avatar}
-                alt={author?.name || ``}
-                imgStyle={{
-                  borderRadius: `50%`,
-                }}
-              />
-            )}
             <p>
-              {author.name} / {post.frontmatter.date}
+              {author.name} - {post.frontmatter.date}
             </p>
           </div>
           {isSeries && (
@@ -98,7 +88,7 @@ const BlogPostTemplate = ({ data, location }) => {
         />
       </div>
       <hr />
-      {isUtterence && <Utterances repo="dayongbz/utterances_comment" />}
+      {isUtterence ? <Utterances repo="dayongbz/utterances_comment" /> : null}
       <nav ref={observeElemRef} className="blog-post-nav">
         <ul
           style={{
@@ -138,13 +128,6 @@ export const pageQuery = graphql`
     $nextPostId: String
     $series: String
   ) {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 30, height: 30, quality: 95) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
     site {
       siteMetadata {
         author {
