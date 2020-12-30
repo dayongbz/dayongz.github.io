@@ -2,7 +2,7 @@ import { css } from "@emotion/react"
 import button from "./common/button"
 import flexCenter from "./common/flex-center"
 
-export const bookmarkFooter = css`
+export const seriesFooter = css`
   ${flexCenter};
   justify-content: space-between;
   margin-top: var(--spacing-8);
@@ -12,7 +12,7 @@ export const bookmarkFooter = css`
   }
 `
 
-const bookmark = css`
+const series = css`
   position: relative;
   background-color: var(--color-bg-tertiary);
   border-radius: 8px;
@@ -58,4 +58,4 @@ const bookmark = css`
   }
 `
 
-export default bookmark
+export default series

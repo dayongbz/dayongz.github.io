@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 
 import ArrowDropDown from "./icon/ArrowDropDown"
 import ArrowDropUp from "./icon/ArrowDropUp"
-import bookmark, { bookmarkFooter } from "../css/components/bookmark"
+import seriesCss, { seriesFooter } from "../css/components/series"
 
-const Bookmark = memo(({ series, seriesTitle, postTitle }) => {
+const Series = memo(({ series, seriesTitle, postTitle }) => {
   const [listVisible, setListVisible] = useState(false)
   const seriesCurrentIndex = series.findIndex(
     item => item.node?.frontmatter?.title === postTitle
@@ -15,7 +15,7 @@ const Bookmark = memo(({ series, seriesTitle, postTitle }) => {
     setListVisible(!listVisible)
   }
   return (
-    <div css={bookmark}>
+    <div css={seriesCss}>
       <h2>
         <strong>SERIES</strong> - {seriesTitle}
       </h2>
@@ -37,7 +37,7 @@ const Bookmark = memo(({ series, seriesTitle, postTitle }) => {
           })}
         </ul>
       )}
-      <div css={bookmarkFooter}>
+      <div css={seriesFooter}>
         {listVisible ? (
           <button onClick={onClick}>
             <ArrowDropUp /> 숨기기
@@ -55,4 +55,4 @@ const Bookmark = memo(({ series, seriesTitle, postTitle }) => {
   )
 })
 
-export default Bookmark
+export default Series

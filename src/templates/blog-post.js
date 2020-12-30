@@ -8,7 +8,7 @@ import SEO from "../components/Seo"
 import Utterances from "../components/Utterances"
 import TableOfContents from "../components/TableOfContents"
 import SponsorButton from "../components/SponsorButton"
-import Bookmark from "../components/Bookmark"
+import Series from "../components/Series"
 import { sponsorButtonWrapper } from "../css/components/sponsor-button"
 import blogPost, { infoWrapper } from "../css/components/blog-post"
 import markdownBody from "../css/components/markdownBody"
@@ -54,7 +54,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </p>
           </div>
           {isSeries && (
-            <Bookmark
+            <Series
               series={series}
               seriesTitle={seriesTitle}
               postTitle={post.frontmatter.title}
