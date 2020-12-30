@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, memo } from "react"
 import { Link } from "gatsby"
 
-import globalNav from "../css/components/global-nav"
+import globalNav, {
+  globalNavInnerWrapper,
+  globalNavLinkHome,
+} from "../css/components/global-nav"
+import ThemeSwitch from "./ThemeSwitch"
 
 const GlobalNav = memo(({ title }) => {
   const navRef = useRef()
@@ -28,9 +32,12 @@ const GlobalNav = memo(({ title }) => {
   }, [navRef])
   return (
     <nav css={globalNav} ref={navRef}>
-      <Link className="header-link-home" to="/">
-        <span>{title}</span>
-      </Link>
+      <div css={globalNavInnerWrapper}>
+        <Link css={globalNavLinkHome} to="/">
+          <span>{title}</span>
+        </Link>
+        <ThemeSwitch />
+      </div>
     </nav>
   )
 })

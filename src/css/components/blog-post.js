@@ -2,6 +2,7 @@ import { css } from "@emotion/react"
 
 const blogPost = css`
   position: relative;
+  margin-top: var(--spacing-8);
   header {
     h1 {
       margin: var(--spacing-0) var(--spacing-0) var(--spacing-4)
@@ -14,11 +15,6 @@ const blogPost = css`
     }
     ul {
       margin: var(--spacing-0);
-    }
-    .info-wrapper {
-      display: flex;
-      align-items: center;
-      margin-bottom: var(--spacing-8);
     }
   }
 `

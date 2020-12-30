@@ -126,8 +126,7 @@ const link = css`
   a {
     color: var(--color-primary);
     text-decoration: none;
-    :hover,
-    :focus {
+    :hover {
       text-decoration: underline;
     }
   }

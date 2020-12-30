@@ -13,7 +13,7 @@ export const size = css`
     --maxWidth-3xl: 48rem;
     --maxWidth-4xl: 56rem;
     --maxWidth-full: "100%";
-    --maxWidth-wrapper: var(--maxWidth-2xl);
+    --maxWidth-wrapper: var(--maxWidth-3xl);
     --spacing-px: "1px";
     --spacing-0: 0;
     --spacing-1: 0.25rem;
@@ -84,9 +84,8 @@ export const color = css`
 export const font = css`
   :root {
     --fontFamily-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-      Helvetica, Malgun Gothic, "맑은 고딕", 나눔고딕, "Nanum Gothic",
-      "Noto Sans KR", Segoe UI, Arial, sans-serif, Apple Color Emoji,
-      Segoe UI Emoji;
+      Helvetica, Malgun Gothic, Noto Sans KR, "맑은 고딕", "Noto Sans KR",
+      Segoe UI, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     --fontFamily-code: SFMono-Regular, Consolas, Liberation Mono, Menlo,
       monospace;
     --font-body: var(--fontFamily-sans);

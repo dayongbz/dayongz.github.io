@@ -14,7 +14,8 @@ const button = css`
   appearance: none;
   background-color: var(--color-bg-tertiary);
   color: 1px solid var(--color-text);
-  :hover {
+  :hover,
+  :focus {
     text-decoration: none;
     filter: brightness(0.8);
   }

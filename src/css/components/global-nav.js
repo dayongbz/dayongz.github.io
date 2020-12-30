@@ -1,18 +1,34 @@
 import { css } from "@emotion/react"
 
 import flexCenter from "./common/flex-center"
+import { mqMax } from "../global/media-query"
+
+export const globalNavLinkHome = css`
+  font-weight: var(--fontWeight-black);
+  font-family: var(--font-heading);
+  font-size: var(--fontSize-2);
+  :hover {
+    text-decoration: none;
+  }
+`
+
+export const globalNavInnerWrapper = css`
+  ${flexCenter};
+  justify-content: space-between;
+  max-width: var(--maxWidth-wrapper);
+  width: 100%;
+  height: 100%;
+`
 
 const globalNav = css`
   ${flexCenter};
-  justify-content: space-between;
   position: fixed;
   top: var(--spacing-0);
   left: var(--spacing-0);
   right: var(--spacing-0);
-  background-color: var(--color-background-op);
   height: var(--spacing-16);
-  padding: var(--spacing-0) var(--spacing-3);
-  border-bottom: 1px solid var(--color-border-primary);
+  background-color: var(--color-background-op);
+  padding: var(--spacing-0) var(--spacing-16);
   z-index: 99999;
   transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease,
     border 0.3s ease;
@@ -25,13 +41,9 @@ const globalNav = css`
   a {
     color: var(--color-text);
   }
-  .header-link-home {
-    font-weight: var(--fontWeight-black);
-    font-family: var(--font-heading);
-    font-size: var(--fontSize-2);
-    :hover {
-      text-decoration: none;
-    }
+
+  ${mqMax[1]} {
+    padding: var(--spacing-0) var(--spacing-3);
   }
 `
 

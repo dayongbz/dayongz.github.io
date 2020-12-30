@@ -1,7 +1,6 @@
 import React from "react"
 import { css } from "@emotion/react"
 
-import ThemeSwitch from "./ThemeSwitch"
 import GlobalNav from "./GlobalNav"
 import globalWrapper from "../css/components/global-wrapper"
 
@@ -18,10 +17,9 @@ const Layout = ({ location, title, children }) => {
           border 0.3s ease;
       `}
     >
-      <GlobalNav title={title} />
       <div css={globalWrapper} data-is-root-path={isRootPath}>
         <header>
-          <ThemeSwitch />
+          <GlobalNav title={title} />
         </header>
         <main>{children}</main>
       </div>
