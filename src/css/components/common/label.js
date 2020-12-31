@@ -10,4 +10,11 @@ const label = css`
   border-radius: 100px;
 `
 
+export const labelLayout = css`
+  position: absolute;
+  top: var(--spacing-2);
+  left: var(--spacing-0);
+  z-index: 9;
+`
+
 export default label

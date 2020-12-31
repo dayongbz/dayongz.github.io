@@ -1,31 +1,44 @@
 import { css } from "@emotion/react"
+import styled from "@emotion/styled"
+import absoluteCenter from "./common/absolute-center"
 import flexCenter from "./common/flex-center"
 
-export const blogPostNavItemInner = css`
-  ${flexCenter}
-  flex-direction:column;
-  position: absolute;
-  top: var(--spacing-0);
-  bottom: var(--spacing-0);
-  left: var(--spacing-0);
-  right: var(--spacing-0);
-  padding: var(--spacing-4);
+export const BlogPostNavItemBg = styled.div`
+  width: var(--maxWidth-full);
+  height: var(--maxWidth-full);
+  background-color: var(--color-bg-tertiary);
+  filter: brightness(0.4);
+  transition: filter 0.3s;
+`
+
+export const blogPostNavItemTitle = css`
+  ${absoluteCenter};
+  color: var(--color-white);
+  font-size: var(--fontSize-2);
+  font-weight: var(--fontWeight-bold);
+  text-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  margin: var(--spacing-0);
+  text-align: center;
 `
 
 export const blogPostNavItem = css`
-  margin: var(--spacing-0);
+  ${flexCenter}
   position: relative;
+  width: var(--maxWidth-full);
+  height: var(--maxWidth-3xs);
+  margin: var(--spacing-0);
   overflow: hidden;
-  p {
-    color: var(--color-white);
-    font-size: var(--fontSize-2);
-    font-weight: var(--fontWeight-bold);
-    text-shadow: 0 0px 5px var(--color-black);
-    margin: var(--spacing-0);
-    text-align: center;
+  .gatsby-image-wrapper {
+    width: var(--maxWidth-full);
+    height: var(--maxWidth-full);
+    transition: filter 0.3s;
+    filter: brightness(0.4);
   }
-  :hover .gatsby-image-wrapper {
-    filter: brightness(0.7);
+  :hover,
+  :focus {
+    ${BlogPostNavItemBg},.gatsby-image-wrapper {
+      filter: brightness(0.7);
+    }
   }
 `
 
@@ -33,12 +46,6 @@ const blogPostNav = css`
   display: flex;
   flex-direction: column;
   width: var(--maxWidth-full);
-
-  .gatsby-image-wrapper {
-    height: var(--maxWidth-3xs);
-    transition: filter 0.3s;
-    filter: brightness(0.4);
-  }
 `
 
 export default blogPostNav
