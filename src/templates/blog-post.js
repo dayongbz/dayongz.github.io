@@ -12,7 +12,7 @@ import BlogPostNav from "../components/BlogPostNav"
 
 import { sponsorButtonWrapper } from "../css/components/sponsor-button"
 import blogPost, { infoWrapper } from "../css/components/blog-post"
-import markdownBody from "../css/components/markdownBody"
+import markdownBody from "../css/components/markdown-body"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx

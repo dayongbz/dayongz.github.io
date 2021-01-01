@@ -107,8 +107,10 @@ export const prose = css`
     *:last-child {
       margin-bottom: var(--spacing-0);
     }
-    > ul {
+    > ul,
+    > ol {
       margin-left: var(--spacing-8);
+      margin-bottom: var(--spacing-0);
     }
   }
 

@@ -92,8 +92,9 @@ export const color = css`
 export const font = css`
   :root {
     --fontFamily-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-      Helvetica, Malgun Gothic, Noto Sans KR, "맑은 고딕", "Noto Sans KR",
-      Segoe UI, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+      Open Sans, "Open Sans", Noto Sans KR, "Noto Sans KR", Segoe UI, Helvetica,
+      Malgun Gothic, "맑은 고딕", Arial, sans-serif, Apple Color Emoji,
+      Segoe UI Emoji;
     --fontFamily-code: SFMono-Regular, Consolas, Liberation Mono, Menlo,
       monospace;
     --font-body: var(--fontFamily-sans);

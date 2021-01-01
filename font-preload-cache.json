@@ -1,0 +1,80 @@
+{
+  "timestamp": 1609498469305,
+  "hash": "00d7f9b3997eb704fd27ff6bad758242",
+  "assets": {
+    "/conference/ndoc/NDOC-1-What_kind_of_environment_do_Naver_people_work_in/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/noto-sans-kr-korean-300-normal-73d9b36361e13d0dbe10e875cdcbd2a7.woff2": true
+    },
+    "/conference/ndoc/NDOC-2-What_kind_of_support_will_people_grow_up_in_Naver/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true,
+      "/static/noto-sans-kr-korean-300-normal-73d9b36361e13d0dbe10e875cdcbd2a7.woff2": true
+    },
+    "/conference/ndoc/NDOC-3-We_asked_new_entrants_from_2019-2020/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true,
+      "/static/noto-sans-kr-korean-300-normal-73d9b36361e13d0dbe10e875cdcbd2a7.woff2": true
+    },
+    "/conference/ndoc/NDOC-4-Why_is_communication_skills_important/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true,
+      "/static/noto-sans-kr-korean-300-normal-73d9b36361e13d0dbe10e875cdcbd2a7.woff2": true
+    },
+    "/conference/ndoc/NDOC-5-What_kind_of_growth_will_Naver_developers_experience/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true,
+      "/static/noto-sans-kr-korean-300-normal-73d9b36361e13d0dbe10e875cdcbd2a7.woff2": true
+    },
+    "/hackathon/ethcon/ethcon2020-review/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true,
+      "/static/noto-sans-kr-korean-300-normal-73d9b36361e13d0dbe10e875cdcbd2a7.woff2": true
+    },
+    "/dummy/dummy/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true
+    },
+    "/dev-404-page/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true
+    },
+    "/404/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true
+    },
+    "/": {
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/noto-sans-kr-korean-700-normal-a8bebd76432913be220cf7a539f57971.woff2": true,
+      "/static/noto-sans-kr-korean-300-normal-73d9b36361e13d0dbe10e875cdcbd2a7.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true
+    },
+    "/using-typescript/": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true
+    },
+    "/404.html": {
+      "/static/open-sans-latin-700-normal-0edb76284a7a0f8db4665b560ee2b48f.woff2": true,
+      "/static/open-sans-latin-400-normal-33543c5cc5d88f5695dd08c87d280dfd.woff2": true,
+      "/static/open-sans-latin-800-normal-ab3e500e7375695d702cff19513e4470.woff2": true
+    }
+  }
+}
