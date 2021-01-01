@@ -12,10 +12,6 @@ export const blogPostNavButton = css`
   ${mqMax[1]} {
     width: var(--maxWidth-full);
   }
-  svg {
-    vertical-align: text-bottom;
-  }
-
   & :last-child {
     margin-left: var(--spacing-2);
   }

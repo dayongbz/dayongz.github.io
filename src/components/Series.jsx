@@ -1,8 +1,7 @@
 import React, { memo, useState } from "react"
 import { Link } from "gatsby"
+import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 
-import ArrowDropDown from "./icon/ArrowDropDown"
-import ArrowDropUp from "./icon/ArrowDropUp"
 import seriesCss, {
   seriesFooter,
   backgroundText,
@@ -42,11 +41,12 @@ const Series = memo(({ series, seriesTitle, postTitle }) => {
       <div css={seriesFooter}>
         {listVisible ? (
           <button onClick={onClick}>
-            <ArrowDropUp /> Hide List
+            <FaCaretUp />
+            <span>Hide List</span>
           </button>
         ) : (
           <button onClick={onClick}>
-            <ArrowDropDown /> Show List
+            <FaCaretDown /> <span>Show List</span>
           </button>
         )}
         <p>

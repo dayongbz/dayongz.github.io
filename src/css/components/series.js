@@ -10,6 +10,16 @@ export const seriesFooter = css`
     color: var(--color-text-light);
     margin: var(--spacing-0);
   }
+
+  button {
+    ${button};
+    border: none;
+    padding: var(--spacing-0);
+    :hover,
+    :focus {
+      background-color: transparent;
+    }
+  }
 `
 
 export const backgroundText = css`
@@ -50,17 +60,6 @@ const series = css`
 
   strong {
     font-style: italic;
-  }
-
-  button {
-    ${button};
-    ${flexCenter}
-    border: none;
-    padding: var(--spacing-0);
-    :hover,
-    :focus {
-      background-color: transparent;
-    }
   }
 
   .active {

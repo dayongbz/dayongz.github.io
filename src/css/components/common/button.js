@@ -15,6 +15,15 @@ const button = css`
   border: 1px solid var(--color-border-primary);
   border-radius: 6px;
   appearance: none;
+
+  svg {
+    vertical-align: middle;
+  }
+
+  span {
+    vertical-align: middle;
+  }
+
   :hover,
   :focus {
     text-decoration: none;
