@@ -48,10 +48,6 @@ jobs:
 
       - run: yarn build:incremental --log-pages
         name: Build
-        env:
-          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
-          NODE_ENV: production
-          ENVIRONMENT: ${{ contains(github.ref, 'master') && 'production' || 'staging'}}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
