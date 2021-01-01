@@ -130,13 +130,6 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     }
     next: mdx(id: { eq: $nextPostId }) {
@@ -145,13 +138,6 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     }
     series: allMdx(

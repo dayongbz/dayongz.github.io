@@ -1,35 +1,30 @@
 import React, { memo } from "react"
 import { Link } from "gatsby"
-import Image from "gatsby-image"
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa"
 
-import blogPostNav, {
-  blogPostNavItem,
-  BlogPostNavItemBg,
-  blogPostNavItemTitle,
-} from "../css/components/blog-post-nav"
-import label, { labelLayout } from "../css/components/common/label"
+import blogPostNav, { blogPostNavButton } from "../css/components/blog-post-nav"
 
 export const BlogPostNavItem = memo(({ type, post }) => {
-  const featuredImg = post?.frontmatter.featuredImage
   return (
     <>
       {post && (
-        <Link to={post.fields.slug} rel={type}>
-          <div css={blogPostNavItem}>
-            <div css={labelLayout}>
-              <span css={label}>{type}</span>
-            </div>
-            {featuredImg ? (
-              <Image
-                objectFit="cover"
-                objectPosition="center"
-                fluid={featuredImg.childImageSharp.fluid}
-              />
-            ) : (
-              <BlogPostNavItemBg />
-            )}
-            <p css={blogPostNavItemTitle}>{post.frontmatter.title}</p>
-          </div>
+        <Link
+          css={blogPostNavButton}
+          to={post.fields.slug}
+          rel={type}
+          role="button"
+        >
+          {type === "Prev" ? (
+            <>
+              <FaLongArrowAltLeft />
+              <span>{post.frontmatter.title}</span>
+            </>
+          ) : (
+            <>
+              <span>{post.frontmatter.title}</span>
+              <FaLongArrowAltRight />
+            </>
+          )}
         </Link>
       )}
     </>

@@ -1,50 +1,30 @@
 import { css } from "@emotion/react"
-import styled from "@emotion/styled"
-import absoluteCenter from "./common/absolute-center"
-import flexCenter from "./common/flex-center"
+import button from "./common/button"
+import { mqMax } from "../global/media-query"
 
-export const BlogPostNavItemBg = styled.div`
-  width: var(--maxWidth-full);
-  height: var(--maxWidth-full);
-  background-color: var(--color-bg-tertiary);
-  filter: brightness(0.4);
-  transition: filter 0.3s;
-`
-
-export const blogPostNavItemTitle = css`
-  ${absoluteCenter};
-  color: var(--color-white);
-  font-size: var(--fontSize-2);
-  font-weight: var(--fontWeight-bold);
-  text-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
-  margin: var(--spacing-0);
-  text-align: center;
-`
-
-export const blogPostNavItem = css`
-  ${flexCenter}
-  position: relative;
-  width: var(--maxWidth-full);
-  height: var(--maxWidth-3xs);
-  margin: var(--spacing-0);
+export const blogPostNavButton = css`
+  ${button};
+  max-width: var(--maxWidth-full);
   overflow: hidden;
-  .gatsby-image-wrapper {
+  text-overflow: ellipsis;
+  margin-bottom: var(--spacing-2);
+
+  ${mqMax[1]} {
     width: var(--maxWidth-full);
-    height: var(--maxWidth-full);
-    transition: filter 0.3s;
-    filter: brightness(0.4);
   }
-  :hover,
-  :focus {
-    ${BlogPostNavItemBg},.gatsby-image-wrapper {
-      filter: brightness(0.7);
-    }
+  svg {
+    vertical-align: text-bottom;
+  }
+
+  & :last-child {
+    margin-left: var(--spacing-2);
   }
 `
 
 const blogPostNav = css`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: var(--maxWidth-full);
 `
 

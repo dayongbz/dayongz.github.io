@@ -2,18 +2,19 @@ import { css } from "@emotion/react"
 
 const button = css`
   display: inline-block;
-  padding: var(--spacing-2);
+  background-color: var(--color-bg-tertiary);
+  padding: var(--spacing-2) var(--spacing-4);
+  color: 1px solid var(--color-text);
   font-size: var(--fontSize-0);
   font-weight: var(--fontWeight-bold);
   white-space: nowrap;
   vertical-align: middle;
+  text-align: center;
   cursor: pointer;
   user-select: none;
   border: 1px solid var(--color-border-primary);
   border-radius: 6px;
   appearance: none;
-  background-color: var(--color-bg-tertiary);
-  color: 1px solid var(--color-text);
   :hover,
   :focus {
     text-decoration: none;
