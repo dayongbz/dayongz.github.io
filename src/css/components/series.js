@@ -1,53 +1,44 @@
 import { css } from "@emotion/react"
 import button from "./common/button"
 import flexCenter from "./common/flex-center"
+import themeTransition from "./common/theme-transiton"
 
-export const seriesFooter = css`
+export const seriesHead = css`
   ${flexCenter};
   justify-content: space-between;
-  margin-top: var(--spacing-8);
-  p {
-    color: var(--color-text-light);
+
+  h2 {
+    font-size: var(--fontSize-3);
     margin: var(--spacing-0);
+  }
+
+  span {
+    color: var(--color-text-light);
+    font-size: var(--fontSize-0);
+    margin-left: var(--spacing-2);
   }
 
   button {
     ${button};
+    ${themeTransition}
     border: none;
-    padding: var(--spacing-0);
-    :hover,
-    :focus {
-      background-color: transparent;
-    }
+    padding: var(--spacing-1);
   }
-`
-
-export const backgroundText = css`
-  position: absolute;
-  bottom: calc(-1 * var(--spacing-6));
-  right: var(--spacing-2);
-  font-size: var(--fontSize-7);
-  font-weight: var(--fontWeight-black);
-  font-style: var(--fontStyle-italic);
-  opacity: 0.3;
 `
 
 const series = css`
+  ${themeTransition}
   position: relative;
   background-color: var(--color-bg-tertiary);
   border-radius: 8px;
-  padding: var(--spacing-8) var(--spacing-6);
-  margin-bottom: var(--spacing-16);
+  padding: var(--spacing-6) var(--spacing-4);
+  margin-bottom: var(--spacing-8);
   font-size: var(--fontSize-0);
   overflow: hidden;
 
-  h2 {
-    margin: var(--spacing-0) var(--spacing-0) var(--spacing-6);
-    font-size: var(--fontSize-3);
-  }
-
   ul {
     list-style-type: decimal;
+    margin: var(--spacing-6) var(--spacing-0) var(--spacing-0);
   }
 
   ul ::marker {
@@ -56,10 +47,6 @@ const series = css`
 
   a {
     color: var(--color-text);
-  }
-
-  strong {
-    font-style: italic;
   }
 
   .active {

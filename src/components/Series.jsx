@@ -2,10 +2,7 @@ import React, { memo, useState } from "react"
 import { Link } from "gatsby"
 import { FaCaretUp, FaCaretDown } from "react-icons/fa"
 
-import seriesCss, {
-  seriesFooter,
-  backgroundText,
-} from "../css/components/series"
+import seriesCss, { seriesHead } from "../css/components/series"
 
 const Series = memo(({ series, seriesTitle, postTitle }) => {
   const [listVisible, setListVisible] = useState(false)
@@ -18,8 +15,24 @@ const Series = memo(({ series, seriesTitle, postTitle }) => {
   }
   return (
     <div css={seriesCss}>
-      <div css={backgroundText}>SERIES</div>
-      <h2>{seriesTitle}</h2>
+      <div css={seriesHead}>
+        <h2>
+          {seriesTitle}
+          <span>
+            {seriesCurrentIndex + 1}/{series.length}
+          </span>
+        </h2>
+        {listVisible ? (
+          <button onClick={onClick}>
+            <FaCaretUp />
+            <span>Hide List</span>
+          </button>
+        ) : (
+          <button onClick={onClick}>
+            <FaCaretDown /> <span>Show List</span>
+          </button>
+        )}
+      </div>
       {listVisible && (
         <ul>
           {series.map((item, index) => {
@@ -38,21 +51,6 @@ const Series = memo(({ series, seriesTitle, postTitle }) => {
           })}
         </ul>
       )}
-      <div css={seriesFooter}>
-        {listVisible ? (
-          <button onClick={onClick}>
-            <FaCaretUp />
-            <span>Hide List</span>
-          </button>
-        ) : (
-          <button onClick={onClick}>
-            <FaCaretDown /> <span>Show List</span>
-          </button>
-        )}
-        <p>
-          {seriesCurrentIndex + 1}/{series.length}
-        </p>
-      </div>
     </div>
   )
 })

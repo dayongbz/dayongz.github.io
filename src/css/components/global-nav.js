@@ -2,6 +2,7 @@ import { css } from "@emotion/react"
 
 import flexCenter from "./common/flex-center"
 import { mqMax } from "../global/media-query"
+import themeTransition from "./common/theme-transiton"
 
 export const globalNavLinkHome = css`
   font-weight: var(--fontWeight-black);
@@ -22,6 +23,7 @@ export const globalNavInnerWrapper = css`
 
 const globalNav = css`
   ${flexCenter};
+  ${themeTransition}
   position: fixed;
   top: var(--spacing-0);
   left: var(--spacing-0);
