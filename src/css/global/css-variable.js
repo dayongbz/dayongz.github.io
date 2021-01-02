@@ -4,6 +4,7 @@ export const size = css`
   :root {
     --maxWidth-none: "none";
     --maxWidth-3xs: 10rem;
+    --maxWidth-2xs: 16rem;
     --maxWidth-xs: 20rem;
     --maxWidth-sm: 24rem;
     --maxWidth-md: 28rem;

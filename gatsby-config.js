@@ -3,7 +3,7 @@ module.exports = {
     title: `Dayong Lee Blog`,
     author: {
       name: `Dayong Lee`,
-      summary: `who lives and works in South Korea.👋`,
+      summary: `Information can be money, but you don't need money to get it.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://dayongbz.github.io/`,
@@ -115,8 +115,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
+        // printRejected: true, // Print removed selectors and processed file names
+        // develop: true, // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders

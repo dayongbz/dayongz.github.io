@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, memo } from "react"
+import postList from "../css/components/post-list"
 
 import PostItem from "./PostItem"
 
@@ -27,7 +28,7 @@ const PostList = memo(({ posts, postsCount, maxPostsCount, dispatch }) => {
   }, [dispatch, maxPostsCount, postsCount])
 
   return (
-    <ol ref={parentRef} style={{ listStyle: `none` }}>
+    <ol ref={parentRef} css={postList}>
       {postsCount &&
         posts
           .slice(0, postsCount)
