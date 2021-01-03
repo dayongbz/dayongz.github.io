@@ -1,10 +1,11 @@
 import { css } from "@emotion/react"
 
 const postItem = css`
-  margin: var(--spacing-0);
+  padding: var(--spacing-6) var(--spacing-0);
+  border-bottom: 1px solid var(--color-border-primary);
 
-  article {
-    margin: var(--spacing-0) var(--spacing-0) var(--spacing-6);
+  :first-of-type {
+    padding: var(--spacing-0) var(--spacing-0) var(--spacing-6);
   }
 
   a {
@@ -16,13 +17,13 @@ const postItem = css`
     margin-bottom: var(--spacing-0);
   }
 
-  h2 {
+  h3 {
     margin-top: var(--spacing-0);
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-0);
   }
 
   header {
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-2);
   }
 
   .gatsby-image-wrapper {

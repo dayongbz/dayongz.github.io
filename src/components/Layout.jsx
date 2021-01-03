@@ -5,7 +5,7 @@ import globalWrapper from "../css/components/global-wrapper"
 import layoutWrapper from "../css/components/layout-wrapper"
 import Bio from "./Bio"
 
-const Layout = memo(({ location, title, children, author, avatar, cover }) => {
+const Layout = memo(({ location, title, children, author, avatar }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
@@ -16,7 +16,7 @@ const Layout = memo(({ location, title, children, author, avatar, cover }) => {
           <GlobalNav title={title} />
         </header>
         <main>
-          {isRootPath && <Bio author={author} avatar={avatar} cover={cover} />}
+          {isRootPath && <Bio author={author} avatar={avatar} />}
           {children}
         </main>
       </div>

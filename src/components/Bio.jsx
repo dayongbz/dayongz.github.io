@@ -1,31 +1,51 @@
 import React, { memo } from "react"
 import Image from "gatsby-image"
+import { FaFacebook, FaTwitter, FaGithub } from "react-icons/fa"
 
 import bio, {
   bioAvatar,
-  bioCover,
-  bioAvatarWrapper,
-  bioCoverGrad,
+  bioDirection,
+  bioIconWrapper,
 } from "../css/components/bio"
 
-const Bio = memo(({ author, avatar, cover }) => {
+const Bio = memo(({ author, avatar }) => {
   return (
     <div css={bio}>
-      <div css={bioCover}>
-        {cover && (
-          <Image objectFit="cover" objectPosition="center" fluid={cover} />
-        )}
-        <div css={bioCoverGrad} />
-      </div>
       {avatar && (
-        <div css={bioAvatarWrapper}>
-          <div css={bioAvatar}>
-            <Image objectFit="cover" objectPosition="center" fluid={avatar} />
-          </div>
-        </div>
+        <Image
+          css={bioAvatar}
+          objectFit="cover"
+          objectPosition="center"
+          fluid={avatar}
+        />
       )}
-      <h2>{author?.name}</h2>
-      <p>{author?.summary}</p>
+      <div css={bioDirection}>
+        <h2>{author?.name}</h2>
+        <p>{author?.summary}</p>
+        <div css={bioIconWrapper}>
+          <a
+            href="https://github.com/dayongbz"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.facebook.com/dayongbz"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://twitter.com/dayongbz"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaTwitter />
+          </a>
+        </div>
+      </div>
     </div>
   )
 })

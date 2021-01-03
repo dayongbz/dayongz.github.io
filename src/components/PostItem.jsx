@@ -17,11 +17,11 @@ const PostItem = memo(({ post }) => {
           />
         )}
         <header>
-          <Link to={post.fields.slug} itemProp="url">
-            <h2>
+          <h3>
+            <Link to={post.fields.slug} itemProp="url">
               <span itemProp="headline">{title}</span>
-            </h2>
-          </Link>
+            </Link>
+          </h3>
           <small>{post.frontmatter.date}</small>
         </header>
         <section>
