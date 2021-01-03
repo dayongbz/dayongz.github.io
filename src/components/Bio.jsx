@@ -27,6 +27,7 @@ const Bio = memo(({ author, avatar }) => {
             href="https://github.com/dayongbz"
             target="_blank"
             rel="noreferrer"
+            aria-label="Github"
           >
             <FaGithub />
           </a>
@@ -34,6 +35,7 @@ const Bio = memo(({ author, avatar }) => {
             href="https://www.facebook.com/dayongbz"
             target="_blank"
             rel="noreferrer"
+            aria-label="Facebook"
           >
             <FaFacebook />
           </a>
@@ -41,6 +43,7 @@ const Bio = memo(({ author, avatar }) => {
             href="https://twitter.com/dayongbz"
             target="_blank"
             rel="noreferrer"
+            aria-label="Twitter"
           >
             <FaTwitter />
           </a>
