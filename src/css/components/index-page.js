@@ -1,7 +1,9 @@
 import { css } from "@emotion/react"
 import button from "./common/button"
+import themeTransition from "./common/theme-transiton"
 
 export const indexPageTab = css`
+  ${themeTransition};
   border-bottom: 1px solid var(--color-border-primary);
   li {
     display: inline-block;

@@ -5,7 +5,7 @@ const blogPost = css`
   margin-top: var(--spacing-8);
   header {
     h1 {
-      margin: var(--spacing-0) var(--spacing-0) var(--spacing-4)
+      margin: var(--spacing-0) var(--spacing-0) var(--spacing-2)
         var(--spacing-0);
     }
   }

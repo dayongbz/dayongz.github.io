@@ -16,7 +16,7 @@ export const globalNavLinkHome = css`
 export const globalNavInnerWrapper = css`
   ${flexCenter};
   justify-content: space-between;
-  max-width: var(--maxWidth-wrapper);
+  max-width: var(--maxWidth-4xl);
   width: 100%;
   height: 100%;
 `
