@@ -7,7 +7,7 @@ import seriesCss, { seriesHead } from "../css/components/series"
 const Series = memo(({ series, seriesTitle, postTitle }) => {
   const [listVisible, setListVisible] = useState(false)
   const seriesCurrentIndex = series.findIndex(
-    item => item.node?.frontmatter?.title === postTitle
+    item => item.frontmatter?.title === postTitle
   )
 
   const onClick = () => {
@@ -36,8 +36,8 @@ const Series = memo(({ series, seriesTitle, postTitle }) => {
       {listVisible && (
         <ul>
           {series.map((item, index) => {
-            const title = item.node?.frontmatter?.title
-            const slug = item.node?.fields?.slug
+            const title = item.frontmatter?.title
+            const slug = item.fields?.slug
             return (
               <li key={title + index}>
                 <Link

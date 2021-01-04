@@ -1,6 +1,8 @@
 const initialState = {
-  posts: 3,
-  maxPosts: null,
+  posts: null,
+  postCount: 3,
+  maxPostCount: null,
+  postTab: 0,
 }
 
 export default initialState

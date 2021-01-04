@@ -30,6 +30,7 @@ const GlobalNav = memo(({ title }) => {
       window.removeEventListener("scroll", onScroll)
     }
   }, [navRef])
+
   return (
     <nav css={globalNav} ref={navRef}>
       <div css={globalNavInnerWrapper}>

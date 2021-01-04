@@ -3,7 +3,7 @@ module.exports = {
     title: `Dayong Lee Blog`,
     author: {
       name: `Dayong Lee`,
-      summary: `I am a university student who is interested in technology and economy living in Korea and I like to get various and useful information 😄`,
+      summary: `I am a university student who is living in Korea and interested in technology and economy. I like to get various and useful information 😄`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://dayongbz.github.io/`,

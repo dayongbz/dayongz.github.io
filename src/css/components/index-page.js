@@ -4,10 +4,13 @@ import themeTransition from "./common/theme-transiton"
 
 export const indexPageTab = css`
   ${themeTransition};
+  display: flex;
   border-bottom: 1px solid var(--color-border-primary);
+  overflow: hidden;
   li {
     display: inline-block;
     margin: var(--spacing-0) var(--spacing-3) var(--spacing-0) var(--spacing-0);
+    color: var(--color-text-light);
   }
   span {
     ${button};
@@ -18,5 +21,6 @@ export const indexPageTab = css`
   .active {
     border-bottom: 2px solid var(--color-text);
     font-weight: bold;
+    color: var(--color-text);
   }
 `

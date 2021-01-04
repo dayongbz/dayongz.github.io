@@ -21,9 +21,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
   const tocItems = post.tableOfContents?.items
   const isTOCVisible = !!tocItems?.length
-  const series = data.series.edges
+  const series = data.series.nodes
+  const isSeries = !!data.series.nodes.length
   const seriesTitle = post.frontmatter?.series
-  const isSeries = !!data.series.edges.length
   const observeElemRef = useRef()
   const [isUtterence, setIsUtterence] = useState(false)
 
@@ -144,14 +144,12 @@ export const pageQuery = graphql`
       sort: { fields: frontmatter___date, order: ASC }
       filter: { frontmatter: { series: { eq: $series, ne: null } } }
     ) {
-      edges {
-        node {
-          frontmatter {
-            title
-          }
-          fields {
-            slug
-          }
+      nodes {
+        frontmatter {
+          title
+        }
+        fields {
+          slug
         }
       }
     }
