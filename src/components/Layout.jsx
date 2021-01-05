@@ -8,6 +8,7 @@ import Bio from "./Bio"
 const Layout = memo(({ location, title, children, author, avatar }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  const isPost = location.pathname.includes("/post/")
 
   return (
     <div css={layoutWrapper}>
@@ -16,7 +17,7 @@ const Layout = memo(({ location, title, children, author, avatar }) => {
           <GlobalNav title={title} />
         </header>
         <main>
-          {isRootPath && <Bio author={author} avatar={avatar} />}
+          {!isPost && <Bio author={author} avatar={avatar} />}
           {children}
         </main>
       </div>

@@ -18,12 +18,6 @@ const reducer = (state, action) => {
         postTab: action.postTab,
       }
     }
-    case "SET_POSTS": {
-      return {
-        ...state,
-        posts: action.posts,
-      }
-    }
     default:
       return state
   }

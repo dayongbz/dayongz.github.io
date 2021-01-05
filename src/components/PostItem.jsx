@@ -20,7 +20,7 @@ const PostItem = memo(({ post }) => {
         )}
         <header>
           <h3>
-            <Link to={post.fields.slug} itemProp="url">
+            <Link to={`/post${post.fields.slug}`} itemProp="url">
               <span itemProp="headline">{title}</span>
             </Link>
           </h3>

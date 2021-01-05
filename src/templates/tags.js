@@ -1,15 +1,18 @@
-import React, { memo } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import PostList from "../components/PostList"
-import PostTab from "../components/PostTab"
 
-const BlogIndex = memo(({ data, location }) => {
+const Tags = ({ pageContext, data, location }) => {
   const { title: siteTitle, author } = data.site.siteMetadata
-  const { nodes: postsAll } = data.allMdx
+  const { tag } = pageContext
+  const { nodes, totalCount } = data.allMdx
   const avatar = data.avatar?.childImageSharp.fluid
+  const tagHeader = `${totalCount} post${
+    totalCount > 1 ? "s" : ""
+  } for "${tag}"`
 
   return (
     <Layout
@@ -18,17 +21,17 @@ const BlogIndex = memo(({ data, location }) => {
       author={author}
       avatar={avatar}
     >
-      <SEO title="All posts" />
-      <PostTab />
-      <PostList postsAll={postsAll} />
+      <SEO title={`#${tag}`} />
+      <h2>{tagHeader}</h2>
+      <PostList postsAll={nodes} />
     </Layout>
   )
-})
+}
 
-export default BlogIndex
+export default Tags
 
 export const pageQuery = graphql`
-  query {
+  query($tag: String) {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 300, maxHeight: 300, cropFocus: CENTER) {
@@ -45,7 +48,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
       nodes {
         excerpt
         fields {

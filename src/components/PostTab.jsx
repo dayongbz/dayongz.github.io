@@ -19,16 +19,20 @@ const PostTab = memo(() => {
           const refineLeft = tabLeft - wrapperLeft
           const targetScrollX =
             scrollLeft + refineLeft - wrapperWidth / 2 + tabWidth / 2
+
+          // smooth scroll
           tabRef.current.scrollTo({
             top: 0,
             left: targetScrollX,
             behavior: "smooth",
           })
 
+          // delete active className
           Array.from(tabRef.current?.children).forEach(item => {
             item.classList.remove("active")
           })
 
+          // add active className
           target.classList.add("active")
           dispatch({ type: "SET_POST_TAB", postTab: index })
         }

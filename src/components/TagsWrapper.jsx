@@ -1,5 +1,7 @@
 import React, { memo } from "react"
 import { css } from "@emotion/react"
+import { Link } from "gatsby"
+import kebabCase from "lodash/kebabCase"
 import label from "../css/components/common/label"
 
 const TagsWrapper = memo(({ post }) => {
@@ -11,15 +13,16 @@ const TagsWrapper = memo(({ post }) => {
       `}
     >
       {post.frontmatter.tags.map((item, index) => (
-        <span
+        <Link
           css={css`
             ${label};
             margin-top: var(--spacing-2);
           `}
+          to={`/tags/${kebabCase(item)}/`}
           key={item + index}
         >
           #{item}
-        </span>
+        </Link>
       ))}
     </div>
   )

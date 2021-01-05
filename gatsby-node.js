@@ -1,4 +1,5 @@
 const path = require(`path`)
+const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -6,6 +7,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  // Define a template for tags
+  const tagTemplate = path.resolve(`./src/templates/tags.js`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -13,7 +16,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       {
         allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
+          limit: 2000
         ) {
           nodes {
             id
@@ -22,7 +25,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             frontmatter {
               series
+              tags
             }
+          }
+        }
+        tagsGroup: allMdx(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
           }
         }
       }
@@ -30,10 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   )
 
   if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
+    reporter.panicOnBuild(`Error while running GraphQL query.`, result.errors)
     return
   }
 
@@ -44,14 +50,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
-    // const seriesNode = posts.filter(({ frontmatter }) => frontmatter.series)
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
       const series = post.frontmatter.series || null
 
       createPage({
-        path: post.fields.slug,
+        path: `/post${post.fields.slug}`,
         component: blogPost,
         context: {
           id: post.id,
@@ -59,6 +64,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
           series,
         },
+      })
+    })
+  }
+
+  const tags = result.data.tagsGroup.group
+
+  // Create tags pages
+  if (tags.length > 0) {
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+        component: tagTemplate,
+        context: { tag: tag.fieldValue },
       })
     })
   }

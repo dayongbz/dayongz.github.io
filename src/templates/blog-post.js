@@ -17,8 +17,7 @@ import markdownBody from "../css/components/markdown-body"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
-  const author = data.site.siteMetadata?.author
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const { title: siteTitle, author } = data.site.siteMetadata
   const { previous, next } = data
   const tocItems = post.tableOfContents?.items
   const isTOCVisible = !!tocItems?.length
