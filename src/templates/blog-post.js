@@ -9,6 +9,7 @@ import TableOfContents from "../components/TableOfContents"
 import SponsorButton from "../components/SponsorButton"
 import Series from "../components/Series"
 import BlogPostNav from "../components/BlogPostNav"
+import TagsWrapper from "../components/TagsWrapper"
 
 import { sponsorButtonWrapper } from "../css/components/sponsor-button"
 import blogPost, { infoWrapper } from "../css/components/blog-post"
@@ -88,6 +89,7 @@ const BlogPostTemplate = ({ data, location }) => {
           text="🍗 Buy me a chicken"
         />
       </div>
+      {post.frontmatter.tags && <TagsWrapper post={post} />}
       <hr ref={observeElemRef} />
       {isUtterence ? <Utterances repo="dayongbz/utterances_comment" /> : null}
       <BlogPostNav previous={previous} next={next} />
@@ -122,6 +124,7 @@ export const pageQuery = graphql`
         date(formatString: "YYYY.MM.DD")
         description
         series
+        tags
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {

@@ -26,11 +26,7 @@ const BlogIndex = memo(({ data, location }) => {
     >
       <SEO title="All posts" />
       <PostTab categories={categories} />
-      {postsAll.length ? (
-        <PostList postsAll={postsAll} categories={categories} />
-      ) : (
-        <p>No blog posts found.</p>
-      )}
+      <PostList postsAll={postsAll} categories={categories} />
     </Layout>
   )
 })
@@ -66,6 +62,7 @@ export const pageQuery = graphql`
           title
           description
           categories
+          tags
           featuredImage {
             childImageSharp {
               fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {

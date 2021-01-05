@@ -16,8 +16,6 @@ const sponsorButton = css`
     align-items: center;
     margin: var(--spacing-8) 0;
   }
-  background-color: var(--color-primary);
-  color: var(--color-background);
   :hover {
     filter: brightness(1.2);
   }

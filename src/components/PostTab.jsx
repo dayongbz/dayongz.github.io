@@ -1,4 +1,4 @@
-import React, { memo, useRef, useEffect, useContext } from "react"
+import React, { memo, useRef, useCallback, useContext } from "react"
 import { indexPageTab } from "../css/components/index-page"
 
 import { GlobalDispatchContext } from "../context/GlobalContextProvider"
@@ -7,8 +7,8 @@ const PostTab = memo(({ categories }) => {
   const tabRef = useRef()
   const dispatch = useContext(GlobalDispatchContext)
 
-  useEffect(() => {
-    const onClickTab = index => {
+  const onClickTab = useCallback(
+    index => {
       return e => {
         const target = e.currentTarget
         if (!target.classList.contains("active")) {
@@ -33,31 +33,21 @@ const PostTab = memo(({ categories }) => {
           dispatch({ type: "SET_POST_TAB", postTab: index })
         }
       }
-    }
-
-    const children = Array.from(tabRef.current?.children)
-    children.forEach((item, index) => {
-      item.addEventListener("click", onClickTab(index))
-    })
-
-    return () => {
-      children.forEach((item, index) => {
-        item.removeEventListener("click", onClickTab(index))
-      })
-    }
-  }, [dispatch])
+    },
+    [dispatch]
+  )
 
   return (
-    <ul css={indexPageTab} ref={tabRef}>
-      <li className="active">
-        <span>Latest</span>
-      </li>
+    <div css={indexPageTab} ref={tabRef}>
+      <button className="active" onClick={onClickTab(0)}>
+        All
+      </button>
       {categories.map((item, index) => (
-        <li key={item + index}>
-          <span>{item}</span>
-        </li>
+        <button key={item + index} onClick={onClickTab(index + 1)}>
+          {item}
+        </button>
       ))}
-    </ul>
+    </div>
   )
 })
 

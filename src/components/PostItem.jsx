@@ -1,6 +1,8 @@
 import React, { memo } from "react"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
+
+import TagsWrapper from "./TagsWrapper"
 import postItem from "../css/components/post-item"
 
 const PostItem = memo(({ post }) => {
@@ -31,6 +33,7 @@ const PostItem = memo(({ post }) => {
             }}
             itemProp="description"
           />
+          {post.frontmatter.tags && <TagsWrapper post={post} />}
         </section>
       </article>
     </li>
