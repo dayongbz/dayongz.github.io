@@ -1,4 +1,4 @@
-import React, { useMemo, memo } from "react"
+import React, { memo } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
@@ -11,11 +11,6 @@ const BlogIndex = memo(({ data, location }) => {
   const author = data.site.siteMetadata?.author
   const avatar = data.avatar?.childImageSharp.fluid
   const postsAll = data.allMdx.nodes
-  const categories = useMemo(
-    () =>
-      Array.from(new Set(postsAll.map(item => item.frontmatter.categories[0]))),
-    [postsAll]
-  )
 
   return (
     <Layout
@@ -25,8 +20,8 @@ const BlogIndex = memo(({ data, location }) => {
       avatar={avatar}
     >
       <SEO title="All posts" />
-      <PostTab categories={categories} />
-      <PostList postsAll={postsAll} categories={categories} />
+      <PostTab />
+      <PostList postsAll={postsAll} />
     </Layout>
   )
 })
@@ -61,7 +56,6 @@ export const pageQuery = graphql`
           date(formatString: "YYYY.MM.DD")
           title
           description
-          categories
           tags
           featuredImage {
             childImageSharp {
@@ -72,7 +66,6 @@ export const pageQuery = graphql`
           }
         }
       }
-      distinct(field: frontmatter___categories)
     }
   }
 `

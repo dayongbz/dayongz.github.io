@@ -8,28 +8,15 @@ import {
   GlobalStateContext,
 } from "../context/GlobalContextProvider"
 
-const PostList = memo(({ postsAll, categories }) => {
+const PostList = memo(({ postsAll }) => {
   const parentRef = useRef()
   const state = useContext(GlobalStateContext)
   const dispatch = useContext(GlobalDispatchContext)
 
   useEffect(() => {
-    if (state.postTab === 0) {
-      dispatch({ type: "SET_POSTS", posts: postsAll })
-    } else {
-      dispatch({
-        type: "SET_POSTS",
-        posts: postsAll.filter(item =>
-          item.frontmatter.categories.includes(categories[state.postTab - 1])
-        ),
-      })
-    }
-  }, [state.postTab, postsAll, categories, dispatch])
-
-  useEffect(() => {
     // set max post count
-    dispatch({ type: "SET_MAX_POST_COUNT", maxPostCount: state.posts?.length })
-  }, [state.posts, dispatch])
+    dispatch({ type: "SET_MAX_POST_COUNT", maxPostCount: postsAll.length })
+  }, [postsAll, dispatch])
 
   useEffect(() => {
     if (parentRef.current) {
@@ -56,10 +43,10 @@ const PostList = memo(({ postsAll, categories }) => {
 
   return (
     <>
-      {state.posts?.length ? (
+      {postsAll?.length ? (
         <ol ref={parentRef} css={postList}>
           {state.postCount &&
-            state.posts
+            postsAll
               ?.slice(0, state.postCount)
               .map(post => <PostItem key={post.fields.slug} post={post} />)}
         </ol>

@@ -3,7 +3,7 @@ import { indexPageTab } from "../css/components/index-page"
 
 import { GlobalDispatchContext } from "../context/GlobalContextProvider"
 
-const PostTab = memo(({ categories }) => {
+const PostTab = memo(() => {
   const tabRef = useRef()
   const dispatch = useContext(GlobalDispatchContext)
 
@@ -40,13 +40,8 @@ const PostTab = memo(({ categories }) => {
   return (
     <div css={indexPageTab} ref={tabRef}>
       <button className="active" onClick={onClickTab(0)}>
-        All
+        All Posts
       </button>
-      {categories.map((item, index) => (
-        <button key={item + index} onClick={onClickTab(index + 1)}>
-          {item}
-        </button>
-      ))}
     </div>
   )
 })
