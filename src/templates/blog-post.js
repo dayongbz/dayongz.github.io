@@ -17,7 +17,7 @@ import markdownBody from "../css/components/markdown-body"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
-  const { title: siteTitle, author } = data.site.siteMetadata
+  const { title: siteTitle } = data.site.siteMetadata
   const { previous, next } = data
   const tocItems = post.tableOfContents?.items
   const isTOCVisible = !!tocItems?.length
@@ -62,7 +62,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <div css={infoWrapper}>
             <p>
-              {author.name} - {post.frontmatter.date}
+              {post.frontmatter.date} · {post.timeToRead} min read
             </p>
           </div>
           {isSeries && (
@@ -107,9 +107,6 @@ export const pageQuery = graphql`
   ) {
     site {
       siteMetadata {
-        author {
-          name
-        }
         title
       }
     }
@@ -118,6 +115,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       body
       tableOfContents
+      timeToRead
       frontmatter {
         title
         date(formatString: "YYYY.MM.DD")

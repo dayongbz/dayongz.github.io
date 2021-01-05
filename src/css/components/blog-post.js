@@ -12,13 +12,11 @@ const blogPost = css`
 `
 
 export const infoWrapper = css`
-  display: flex;
-  align-items: center;
   margin-bottom: var(--spacing-8);
   p {
     color: var(--color-text-light);
     font-family: var(--font-heading);
-    margin: 0 0 0 var(--spacing-2);
+    margin: var(--spacing-0);
   }
 `
 export default blogPost

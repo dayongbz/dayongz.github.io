@@ -24,7 +24,9 @@ const PostItem = memo(({ post }) => {
               <span itemProp="headline">{title}</span>
             </Link>
           </h3>
-          <small>{post.frontmatter.date}</small>
+          <small>
+            {post.frontmatter.date} · {post.timeToRead} min read
+          </small>
         </header>
         <section>
           <p
