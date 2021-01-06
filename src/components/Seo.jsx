@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+import defaultImage from "../../content/assets/icon.png"
+
 const SEO = memo(({ description, lang, meta, title, image }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -19,7 +21,6 @@ const SEO = memo(({ description, lang, meta, title, image }) => {
             title
             description
             siteUrl
-            image
             social {
               twitter
             }
@@ -30,11 +31,7 @@ const SEO = memo(({ description, lang, meta, title, image }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const {
-    siteUrl,
-    image: defaultImage,
-    title: defaultTitle,
-  } = site.siteMetadata
+  const { siteUrl, title: defaultTitle } = site.siteMetadata
 
   return (
     <Helmet

@@ -7,7 +7,6 @@ module.exports = {
     },
     description: `This blog focuses on technology and economics.`,
     siteUrl: `https://dayongbz.github.io`,
-    image: "/content/assets/icon.png",
     social: {
       twitter: `dayongbz`,
     },
