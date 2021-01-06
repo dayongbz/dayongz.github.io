@@ -83,18 +83,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-feed-mdx`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Dayong Lee Blog`,
-        short_name: `DayongLee`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#02569b`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     {
@@ -123,8 +111,20 @@ module.exports = {
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Dayong Lee Blog`,
+        short_name: `Dayong Lee`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#0366d6`,
+        display: `minimal-ui`,
+        icon: `content/assets/gatsby-icon.png`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`
   ],
 }
