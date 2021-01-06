@@ -23,9 +23,10 @@ const BlogPostTemplate = ({ data, location }) => {
   const isTOCVisible = !!tocItems?.length
   const series = data.series.nodes
   const isSeries = !!data.series.nodes.length
-  const seriesTitle = post.frontmatter?.series
   const observeElemRef = useRef()
   const [isUtterence, setIsUtterence] = useState(false)
+  const { featuredImage, series: seriesTitle } = post.frontmatter
+  const featuredImgSrc = featuredImage?.childImageSharp.fluid.src
 
   useEffect(() => {
     const target = observeElemRef.current
@@ -51,6 +52,7 @@ const BlogPostTemplate = ({ data, location }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={featuredImgSrc || null}
       />
       <article
         className="blog-post"
@@ -122,6 +124,13 @@ export const pageQuery = graphql`
         description
         series
         tags
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
