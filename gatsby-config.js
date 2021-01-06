@@ -5,8 +5,9 @@ module.exports = {
       name: `Dayong Lee`,
       summary: `I am a university student who is living in Korea and interested in technology and economy. I like to get various and useful information 😄`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://dayongbz.github.io/`,
+    description: `This blog focuses on technology and economics.`,
+    siteUrl: `https://dayongbz.github.io`,
+    image: "/content/assets/icon.png",
     social: {
       twitter: `dayongbz`,
     },
@@ -120,7 +121,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#0366d6`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
