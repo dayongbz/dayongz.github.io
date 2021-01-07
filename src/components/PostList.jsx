@@ -23,10 +23,7 @@ const PostList = memo(({ posts }) => {
       const observer = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
-            if (
-              entry.isIntersecting &&
-              state.posts.length > state.visiblePostCount
-            ) {
+            if (entry.isIntersecting) {
               dispatch({ type: "ADD_VISIBLE_POST_COUNT" })
             }
           })
