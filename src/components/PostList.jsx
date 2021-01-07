@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, memo, useContext } from "react"
+import React, { useEffect, useRef, memo, useContext, useState } from "react"
 
 import postList from "../css/components/post-list"
 import PostItem from "./PostItem"
@@ -10,23 +10,21 @@ import {
 
 const PostList = memo(({ defaultPosts, seriesGroup }) => {
   const state = useContext(GlobalStateContext)
+  const [posts, setPosts] = useState(defaultPosts)
   const dispatch = useContext(GlobalDispatchContext)
   const parentRef = useRef()
 
   useEffect(() => {
     // filtering posts each tab
     if (state.postTab !== "all") {
-      console.log(seriesGroup.filter(item => item.series === state.postTab))
-      dispatch({
-        type: "SET_POSTS",
-        posts:
-          seriesGroup.filter(item => item.series === state.postTab)[0].nodes ||
-          defaultPosts,
-      })
+      setPosts(
+        seriesGroup.filter(item => item.series === state.postTab)[0].nodes ||
+          defaultPosts
+      )
     } else {
-      dispatch({ type: "SET_POSTS", posts: defaultPosts })
+      setPosts(defaultPosts)
     }
-  }, [state.postTab, defaultPosts, seriesGroup, dispatch])
+  }, [state.postTab, defaultPosts, seriesGroup, setPosts])
 
   useEffect(() => {
     // lazy load
@@ -57,10 +55,10 @@ const PostList = memo(({ defaultPosts, seriesGroup }) => {
 
   return (
     <>
-      {state.posts?.length ? (
+      {posts.length ? (
         <ol ref={parentRef} css={postList}>
           {state.visiblePostCount &&
-            state.posts
+            posts
               ?.slice(0, state.visiblePostCount)
               .map(post => <PostItem key={post.fields.slug} post={post} />)}
         </ol>

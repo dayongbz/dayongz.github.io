@@ -1,11 +1,5 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_POSTS": {
-      return {
-        ...state,
-        posts: action.posts,
-      }
-    }
     case "ADD_VISIBLE_POST_COUNT": {
       return {
         ...state,
