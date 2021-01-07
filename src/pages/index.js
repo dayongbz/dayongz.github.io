@@ -11,7 +11,6 @@ import { GlobalStateContext } from "../context/GlobalContextProvider"
 const BlogIndex = memo(({ data, location }) => {
   const state = useContext(GlobalStateContext)
   const { title: siteTitle, author, social } = data.site.siteMetadata
-  console.log(social)
   const { nodes: postsAll } = data.allMdx
   const seriesGroup = data.series.group
   const avatar = data.avatar?.childImageSharp.fluid
