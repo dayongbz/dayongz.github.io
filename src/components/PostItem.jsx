@@ -25,7 +25,8 @@ const PostItem = memo(({ post }) => {
             </Link>
           </h3>
           <small>
-            {post.frontmatter.date} · {post.timeToRead} min read
+            {post.frontmatter.date}{" "}
+            {post.timeToRead && `· ${post.timeToRead} min read`}
           </small>
         </header>
         <section>

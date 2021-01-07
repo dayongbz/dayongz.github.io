@@ -1,7 +1,7 @@
 const initialState = {
-  postCount: 3,
-  maxPostCount: null,
-  postTab: 0,
+  posts: null,
+  visiblePostCount: 3,
+  postTab: "all",
 }
 
 export default initialState

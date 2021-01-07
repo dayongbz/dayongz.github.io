@@ -1,15 +1,15 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_POST_COUNT": {
+    case "SET_POSTS": {
       return {
         ...state,
-        postCount: state.postCount + 3,
+        posts: action.posts,
       }
     }
-    case "SET_MAX_POST_COUNT": {
+    case "ADD_VISIBLE_POST_COUNT": {
       return {
         ...state,
-        maxPostCount: action.maxPostCount,
+        visiblePostCount: state.visiblePostCount + 3,
       }
     }
     case "SET_POST_TAB": {
