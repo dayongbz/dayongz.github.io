@@ -31,8 +31,11 @@ const SEO = memo(({ description, lang, meta, title, image, location }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const { title: defaultTitle } = site.siteMetadata
-  const siteUrl = location.href?.slice(0, -1)
+  const { title: defaultTitle, siteUrl: defaultSiteUrl } = site.siteMetadata
+  const siteUrl =
+    location.href?.slice(0, -1) ||
+    window.location.href?.slice(0, -1) ||
+    defaultSiteUrl
 
   return (
     <Helmet
