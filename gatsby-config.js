@@ -6,7 +6,7 @@ module.exports = {
       summary: `I am a university student who is living in Korea and interested in technology and economy. I like to get various and useful information 😄`,
     },
     description: `This blog focuses on technology and economics.`,
-    siteUrl: `https://dayongbz.github.io`,
+    siteUrl: `https://dayong.xyz`,
     social: {
       twitter: `dayongbz`,
       facebook: `dayongbz`,

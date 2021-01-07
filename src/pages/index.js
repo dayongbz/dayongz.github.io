@@ -29,7 +29,7 @@ const BlogIndex = memo(({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="All posts" location={location} />
       <PostTab seriesGroup={seriesGroup} />
       <PostList posts={posts} />
     </Layout>

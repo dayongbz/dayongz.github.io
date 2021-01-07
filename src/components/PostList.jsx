@@ -18,7 +18,6 @@ const PostList = memo(({ posts }) => {
     if (parentRef.current) {
       const parent = parentRef.current
       const target = parent.lastChild
-      console.log(target)
 
       const observer = new IntersectionObserver(
         entries => {

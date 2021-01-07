@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import defaultImage from "../../content/assets/metaDefault.png"
 
-const SEO = memo(({ description, lang, meta, title, image }) => {
+const SEO = memo(({ description, lang, meta, title, image, location }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -31,7 +31,8 @@ const SEO = memo(({ description, lang, meta, title, image }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const { siteUrl, title: defaultTitle } = site.siteMetadata
+  const { title: defaultTitle } = site.siteMetadata
+  const siteUrl = location.href?.slice(0, -1)
 
   return (
     <Helmet
