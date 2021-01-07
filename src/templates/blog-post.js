@@ -53,6 +53,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         image={featuredImgSrc || null}
+        location={location}
       />
       <article
         className="blog-post"
