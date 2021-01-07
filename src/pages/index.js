@@ -10,10 +10,9 @@ import { GlobalStateContext } from "../context/GlobalContextProvider"
 
 const BlogIndex = memo(({ data, location }) => {
   const state = useContext(GlobalStateContext)
-  const { title: siteTitle, author, social } = data.site.siteMetadata
+  const { title: siteTitle } = data.site.siteMetadata
   const { nodes: postsAll } = data.allMdx
   const seriesGroup = data.series.group
-  const avatar = data.avatar?.childImageSharp.fluid
   const [posts, setPosts] = useState(postsAll)
 
   useEffect(() => {
@@ -29,13 +28,7 @@ const BlogIndex = memo(({ data, location }) => {
   }, [state.postTab, postsAll, seriesGroup, setPosts])
 
   return (
-    <Layout
-      location={location}
-      title={siteTitle}
-      author={author}
-      avatar={avatar}
-      social={social}
-    >
+    <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <PostTab seriesGroup={seriesGroup} />
       <PostList posts={posts} />
@@ -47,25 +40,9 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fluid(maxWidth: 300, maxHeight: 300, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     site {
       siteMetadata {
         title
-        author {
-          name
-          summary
-        }
-        social {
-          github
-          facebook
-          twitter
-        }
       }
     }
     allMdx(limit: 2000, sort: { fields: [frontmatter___date], order: DESC }) {
