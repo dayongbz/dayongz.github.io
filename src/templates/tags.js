@@ -6,7 +6,7 @@ import SEO from "../components/Seo"
 import PostList from "../components/PostList"
 
 const Tags = ({ pageContext, data, location }) => {
-  const { title: siteTitle, author } = data.site.siteMetadata
+  const { title: siteTitle, author, social } = data.site.siteMetadata
   const { tag } = pageContext
   const { nodes, totalCount } = data.allMdx
   const avatar = data.avatar?.childImageSharp.fluid
@@ -20,6 +20,7 @@ const Tags = ({ pageContext, data, location }) => {
       title={siteTitle}
       author={author}
       avatar={avatar}
+      social={social}
     >
       <SEO title={`#${tag}`} />
       <h2>{tagHeader}</h2>
@@ -45,6 +46,11 @@ export const pageQuery = graphql`
         author {
           name
           summary
+        }
+        social {
+          github
+          facebook
+          twitter
         }
       }
     }

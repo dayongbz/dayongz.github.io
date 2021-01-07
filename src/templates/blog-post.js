@@ -17,7 +17,7 @@ import markdownBody from "../css/components/markdown-body"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
-  const { title: siteTitle } = data.site.siteMetadata
+  const { title: siteTitle, buyMeACoffee, utterances } = data.site.siteMetadata
   const { previous, next } = data
   const tocItems = post.tableOfContents?.items
   const isTOCVisible = !!tocItems?.length
@@ -86,13 +86,13 @@ const BlogPostTemplate = ({ data, location }) => {
       </article>
       <div css={sponsorButtonWrapper}>
         <SponsorButton
-          href="https://www.buymeacoffee.com/dayongbz"
-          text="🍗 Buy me a chicken"
+          href={`https://www.buymeacoffee.com/${buyMeACoffee}`}
+          text="☕ Buy me a coffee"
         />
       </div>
       {post.frontmatter.tags && <TagsWrapper post={post} />}
       <hr ref={observeElemRef} />
-      {isUtterence ? <Utterances repo="dayongbz/utterances_comment" /> : null}
+      {isUtterence ? <Utterances repo={utterances} /> : null}
       <BlogPostNav previous={previous} next={next} />
     </Layout>
   )
@@ -110,6 +110,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        utterances
+        buyMeACoffee
       }
     }
     mdx(id: { eq: $id }) {

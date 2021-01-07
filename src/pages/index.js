@@ -10,7 +10,8 @@ import { GlobalStateContext } from "../context/GlobalContextProvider"
 
 const BlogIndex = memo(({ data, location }) => {
   const state = useContext(GlobalStateContext)
-  const { title: siteTitle, author } = data.site.siteMetadata
+  const { title: siteTitle, author, social } = data.site.siteMetadata
+  console.log(social)
   const { nodes: postsAll } = data.allMdx
   const seriesGroup = data.series.group
   const avatar = data.avatar?.childImageSharp.fluid
@@ -34,6 +35,7 @@ const BlogIndex = memo(({ data, location }) => {
       title={siteTitle}
       author={author}
       avatar={avatar}
+      social={social}
     >
       <SEO title="All posts" />
       <PostTab seriesGroup={seriesGroup} />
@@ -59,6 +61,11 @@ export const pageQuery = graphql`
         author {
           name
           summary
+        }
+        social {
+          github
+          facebook
+          twitter
         }
       }
     }

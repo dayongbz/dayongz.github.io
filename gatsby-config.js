@@ -9,7 +9,11 @@ module.exports = {
     siteUrl: `https://dayongbz.github.io`,
     social: {
       twitter: `dayongbz`,
+      facebook: `dayongbz`,
+      github: `dayongbz`,
     },
+    utterances: `dayongbz/utterances_comment`,
+    buyMeACoffee: `dayongbz`,
   },
   plugins: [
     {
