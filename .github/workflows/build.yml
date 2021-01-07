@@ -49,7 +49,14 @@ jobs:
       - run: yarn build:incremental --log-pages
         name: Build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.DEPLOY_API_KEY}}
+
+      - uses: netlify/actions/cli@master
         with:
-          github_token: ${{ secrets.DEPLOY_API_KEY}}
+          args: deploy --dir=public --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
