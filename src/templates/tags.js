@@ -23,7 +23,7 @@ const Tags = ({ pageContext, data, location }) => {
     >
       <SEO title={`#${tag}`} />
       <h2>{tagHeader}</h2>
-      <PostList postsAll={nodes} />
+      <PostList posts={nodes} />
     </Layout>
   )
 }
