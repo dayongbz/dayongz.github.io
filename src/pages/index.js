@@ -5,14 +5,11 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import PostList from "../components/PostList"
 import PostTab from "../components/PostTab"
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from "../context/GlobalContextProvider"
+
+import { GlobalStateContext } from "../context/GlobalContextProvider"
 
 const BlogIndex = memo(({ data, location }) => {
   const state = useContext(GlobalStateContext)
-  const dispatch = useContext(GlobalDispatchContext)
   const { title: siteTitle, author } = data.site.siteMetadata
   const { nodes: postsAll } = data.allMdx
   const seriesGroup = data.series.group
