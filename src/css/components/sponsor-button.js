@@ -16,9 +16,6 @@ const sponsorButton = css`
     align-items: center;
     margin: var(--spacing-8) 0;
   }
-  :hover {
-    filter: brightness(1.2);
-  }
 `
 
 export default sponsorButton

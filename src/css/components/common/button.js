@@ -15,6 +15,7 @@ const button = css`
   border: 1px solid var(--color-border-primary);
   border-radius: 6px;
   appearance: none;
+  transition: filter 0.1s;
 
   svg {
     vertical-align: middle;
