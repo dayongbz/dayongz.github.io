@@ -53,7 +53,7 @@ const markdownBody = css`
 
   code {
     font-size: var(--fontSize-0);
-    padding: var(--spacing-1) var(--spacing-1);
+    padding: 0.1rem var(--spacing-1);
     background-color: var(--color-markdown-code-bg);
     border-radius: 6px;
     font-family: var(--fontFamily-code);
