@@ -59,7 +59,7 @@ export const pageQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
+              fluid(maxWidth: 711, maxHeight: 300, cropFocus: CENTER) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -70,7 +70,7 @@ export const pageQuery = graphql`
     series: allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { series: { ne: "null" } } }
+      filter: { frontmatter: { series: { ne: null } } }
     ) {
       group(field: frontmatter___series) {
         series: fieldValue
@@ -87,7 +87,7 @@ export const pageQuery = graphql`
             tags
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
+                fluid(maxWidth: 711, maxHeight: 300, cropFocus: CENTER) {
                   ...GatsbyImageSharpFluid
                 }
               }

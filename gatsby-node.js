@@ -110,6 +110,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       author: Author
       siteUrl: String
       social: Social
+      utterances: String
+      buyMeACoffee: String
     }
 
     type Author {
@@ -119,6 +121,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Social {
       twitter: String
+      facebook: String
+      github: String
     }
 
     type MarkdownRemark implements Node {
@@ -130,6 +134,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      series: String
+      featuredImage: String
+      tags: [String]
+      categories: [String]
     }
 
     type Fields {

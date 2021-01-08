@@ -49,7 +49,7 @@ export const pageQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              fluid(maxWidth: 700, maxHeight: 300, cropFocus: CENTER) {
+              fluid(maxWidth: 711, maxHeight: 300, cropFocus: CENTER) {
                 ...GatsbyImageSharpFluid
               }
             }
