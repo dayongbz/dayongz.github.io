@@ -10,6 +10,7 @@ const TagsWrapper = memo(({ post }) => {
       css={css`
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: var(--spacing-4);
       `}
     >
       {post.frontmatter.tags.map((item, index) => (

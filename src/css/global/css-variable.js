@@ -15,7 +15,7 @@ export const size = css`
     --maxWidth-4xl: 56rem;
     --maxWidth-half: 50%;
     --maxWidth-full: 100%;
-    --maxWidth-wrapper: var(--maxWidth-3xl);
+    --maxWidth-wrapper: var(--maxWidth-2xl);
     --spacing-px: "1px";
     --spacing-0: 0;
     --spacing-1: 0.25rem;

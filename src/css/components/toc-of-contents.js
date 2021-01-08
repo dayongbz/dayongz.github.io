@@ -26,12 +26,12 @@ export const tocTitle = css`
 export const tocLink = css`
   color: var(--color-text-light);
   :hover {
-    color: var(--color-primary);
+    color: var(--color-text);
   }
 `
 
 export const tocActiveLink = css`
   ${tocLink};
   font-weight: bold;
-  color: var(--color-primary);
+  color: var(--color-text);
 `
