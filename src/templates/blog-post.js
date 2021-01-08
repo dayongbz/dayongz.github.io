@@ -124,8 +124,16 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "YYYY.MM.DD")
+        description
         series
         tags
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 711, maxHeight: 300, cropFocus: CENTER) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
