@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useContext, useState } from "react"
+import React, { memo, useState } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
@@ -6,31 +6,20 @@ import SEO from "../components/Seo"
 import PostList from "../components/PostList"
 import PostTab from "../components/PostTab"
 
-import { GlobalStateContext } from "../context/GlobalContextProvider"
-
 const BlogIndex = memo(({ data, location }) => {
-  const state = useContext(GlobalStateContext)
   const { title: siteTitle } = data.site.siteMetadata
   const { nodes: postsAll } = data.allMdx
   const seriesGroup = data.series.group
   const [posts, setPosts] = useState(postsAll)
 
-  useEffect(() => {
-    // filtering posts each tab
-    if (state.postTab !== "all") {
-      setPosts(
-        seriesGroup.filter(item => item.series === state.postTab)[0].nodes ||
-          postsAll
-      )
-    } else {
-      setPosts(postsAll)
-    }
-  }, [state.postTab, postsAll, seriesGroup, setPosts])
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" location={location} />
-      <PostTab seriesGroup={seriesGroup} />
+      <PostTab
+        seriesGroup={seriesGroup}
+        setPosts={setPosts}
+        postsAll={postsAll}
+      />
       <PostList posts={posts} />
     </Layout>
   )

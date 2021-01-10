@@ -1,11 +1,8 @@
-import React, { memo, useRef, useCallback, useContext } from "react"
+import React, { memo, useRef, useCallback } from "react"
 import { indexPageTab } from "../css/components/index-page"
 
-import { GlobalDispatchContext } from "../context/GlobalContextProvider"
-
-const PostTab = memo(({ seriesGroup }) => {
+const PostTab = memo(({ seriesGroup, setPosts, postsAll }) => {
   const tabRef = useRef()
-  const dispatch = useContext(GlobalDispatchContext)
 
   const onClickTab = useCallback(
     e => {
@@ -34,10 +31,17 @@ const PostTab = memo(({ seriesGroup }) => {
 
         // add active className
         target.classList.add("active")
-        dispatch({ type: "SET_POST_TAB", postTab: target.dataset.title })
+        if (target.dataset.title !== "all") {
+          setPosts(
+            seriesGroup.filter(item => item.series === target.dataset.title)[0]
+              .nodes || postsAll
+          )
+        } else {
+          setPosts(postsAll)
+        }
       }
     },
-    [dispatch]
+    [postsAll, setPosts, seriesGroup]
   )
 
   return (

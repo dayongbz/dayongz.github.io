@@ -1,17 +1,11 @@
-import React, { useEffect, useRef, memo, useContext } from "react"
+import React, { useEffect, useRef, memo, useState } from "react"
 
 import postList from "../css/components/post-list"
 import PostItem from "./PostItem"
 
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from "../context/GlobalContextProvider"
-
 const PostList = memo(({ posts }) => {
-  const state = useContext(GlobalStateContext)
-  const dispatch = useContext(GlobalDispatchContext)
   const parentRef = useRef()
+  const [visiblePostCount, setVisiblePostCount] = useState(3)
 
   useEffect(() => {
     // lazy load
@@ -22,11 +16,8 @@ const PostList = memo(({ posts }) => {
       const observer = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
-            if (
-              entry.isIntersecting &&
-              posts?.length > state.visiblePostCount
-            ) {
-              dispatch({ type: "ADD_VISIBLE_POST_COUNT" })
+            if (entry.isIntersecting && posts?.length > visiblePostCount) {
+              setVisiblePostCount(visiblePostCount + 3)
             }
           })
         },
@@ -37,13 +28,13 @@ const PostList = memo(({ posts }) => {
         if (target) observer.unobserve(target)
       }
     }
-  }, [dispatch, posts, state.visiblePostCount])
+  }, [posts, visiblePostCount])
 
   return (
     <>
       {posts.length ? (
         <ol ref={parentRef} css={postList}>
-          {posts?.slice(0, state.visiblePostCount).map(post => (
+          {posts?.slice(0, visiblePostCount).map(post => (
             <PostItem key={post.fields.slug} post={post} />
           ))}
         </ol>
