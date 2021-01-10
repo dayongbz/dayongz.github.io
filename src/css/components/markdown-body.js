@@ -68,5 +68,9 @@ const markdownBody = css`
       padding: var(--spacing-0);
     }
   }
+
+  img {
+    max-width: var(--maxWidth-full);
+  }
 `
 export default markdownBody
