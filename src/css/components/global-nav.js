@@ -31,7 +31,7 @@ const globalNav = css`
   height: var(--spacing-16);
   background-color: var(--color-background-op);
   padding: var(--spacing-0) var(--spacing-16);
-  z-index: 99999;
+  z-index: 99;
   transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease,
     border 0.3s ease;
   backdrop-filter: blur(5px);

@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import mediumZoom from "medium-zoom"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
@@ -25,6 +26,12 @@ const BlogPostTemplate = ({ data, location }) => {
   const isSeries = !!data.series.nodes.length
   const { featuredImage, series: seriesTitle } = post.frontmatter
   const featuredImgSrc = featuredImage?.childImageSharp.fluid.src
+  const zoomOption = { margin: 42, background: "var(--color-background)" }
+
+  useEffect(() => {
+    console.log("hello")
+    mediumZoom(".markdown-body img", zoomOption)
+  }, [zoomOption])
 
   return (
     <Layout location={location} title={siteTitle}>
