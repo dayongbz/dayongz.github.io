@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -23,29 +23,8 @@ const BlogPostTemplate = ({ data, location }) => {
   const isTOCVisible = !!tocItems?.length
   const series = data.series.nodes
   const isSeries = !!data.series.nodes.length
-  const observeElemRef = useRef()
-  const [isUtterence, setIsUtterence] = useState(false)
   const { featuredImage, series: seriesTitle } = post.frontmatter
   const featuredImgSrc = featuredImage?.childImageSharp.fluid.src
-
-  useEffect(() => {
-    const target = observeElemRef.current
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !isUtterence) {
-            setIsUtterence(true)
-          }
-        })
-      },
-      { threshold: 1.0 }
-    )
-
-    if (target) observer.observe(target)
-    return () => {
-      if (target) observer.observe(target)
-    }
-  }, [isUtterence])
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -92,8 +71,8 @@ const BlogPostTemplate = ({ data, location }) => {
         />
       </div>
       {post.frontmatter.tags && <TagsWrapper post={post} />}
-      <hr ref={observeElemRef} />
-      {isUtterence ? <Utterances repo={utterances} /> : null}
+      <hr />
+      <Utterances repo={utterances} />
       <BlogPostNav previous={previous} next={next} />
     </Layout>
   )
