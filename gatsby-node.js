@@ -137,7 +137,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       series: String
       featuredImage: String
       tags: [String]
-      categories: [String]
+      categories: String
     }
 
     type Fields {
