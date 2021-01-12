@@ -9,14 +9,14 @@ import PostTab from "../components/PostTab"
 const BlogIndex = memo(({ data, location }) => {
   const { title: siteTitle } = data.site.siteMetadata
   const { nodes: postsAll } = data.allMdx
-  const seriesGroup = data.series.group
+  const categoriesGroup = data.categories.group
   const [posts, setPosts] = useState(postsAll)
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" location={location} />
       <PostTab
-        seriesGroup={seriesGroup}
+        categoriesGroup={categoriesGroup}
         setPosts={setPosts}
         postsAll={postsAll}
       />
@@ -56,13 +56,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    series: allMdx(
+    categories: allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { series: { ne: null } } }
     ) {
-      group(field: frontmatter___series) {
-        series: fieldValue
+      group(field: frontmatter___categories) {
+        categories: fieldValue
         nodes {
           excerpt
           fields {

@@ -1,7 +1,7 @@
 import React, { memo, useRef, useCallback } from "react"
 import { indexPageTab } from "../css/components/index-page"
 
-const PostTab = memo(({ seriesGroup, setPosts, postsAll }) => {
+const PostTab = memo(({ categoriesGroup, setPosts, postsAll }) => {
   const tabRef = useRef()
 
   const onClickTab = useCallback(
@@ -33,15 +33,16 @@ const PostTab = memo(({ seriesGroup, setPosts, postsAll }) => {
         target.classList.add("active")
         if (target.dataset.title !== "all") {
           setPosts(
-            seriesGroup.filter(item => item.series === target.dataset.title)[0]
-              .nodes || postsAll
+            categoriesGroup.filter(
+              item => item.categories === target.dataset.title
+            )[0].nodes || postsAll
           )
         } else {
           setPosts(postsAll)
         }
       }
     },
-    [postsAll, setPosts, seriesGroup]
+    [postsAll, setPosts, categoriesGroup]
   )
 
   return (
@@ -49,14 +50,14 @@ const PostTab = memo(({ seriesGroup, setPosts, postsAll }) => {
       <button className="active" onClick={onClickTab} data-title="all">
         All Posts
       </button>
-      {seriesGroup &&
-        seriesGroup.map((item, index) => (
+      {categoriesGroup &&
+        categoriesGroup.map((item, index) => (
           <button
-            key={item.series + index}
+            key={item.categories + index}
             onClick={onClickTab}
-            data-title={item.series}
+            data-title={item.categories}
           >
-            {item.series}
+            {item.categories}
           </button>
         ))}
     </div>
