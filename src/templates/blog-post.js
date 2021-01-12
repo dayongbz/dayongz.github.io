@@ -29,7 +29,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const zoomOption = { margin: 42, background: "var(--color-background)" }
 
   useEffect(() => {
-    console.log("hello")
     mediumZoom(".markdown-body img", zoomOption)
   }, [zoomOption])
 
