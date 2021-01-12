@@ -12,7 +12,7 @@ const markdownBody = css`
   }
 
   li {
-    margin-top: var(--spacing-2);
+    margin-top: var(--spacing-1);
     p {
       display: inline;
     }
