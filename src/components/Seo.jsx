@@ -21,6 +21,7 @@ const SEO = memo(({ description, lang, meta, title, image, location }) => {
             title
             description
             siteUrl
+            keywords
             social {
               twitter
             }
@@ -47,6 +48,10 @@ const SEO = memo(({ description, lang, meta, title, image, location }) => {
           content: metaDescription,
         },
         {
+          name: "keywords",
+          content: site.siteMetadata.keywords.join(","),
+        },
+        {
           name: `image`,
           content: `${siteUrl}${image || defaultImage}`,
         },
@@ -68,7 +73,7 @@ const SEO = memo(({ description, lang, meta, title, image, location }) => {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
